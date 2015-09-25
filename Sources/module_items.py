@@ -1264,6 +1264,7 @@ items = [
 (agent_set_hit_points,":player",100,1),
 ])]
 ],
+#诺德任务装备
 ["forest_hunter", "Forest Hunter", [("hunting_bow",0),("hunting_bow_carry",ixmesh_carry)],itp_type_bow |itp_merchandise|itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back,
 3000 , weight(1.8)|difficulty(2)|spd_rtng(99) | shoot_speed(95) | thrust_damage(26 ,  pierce),imodbits_bow ],
 ["sword_of_guard", "Sword of Guard", [("sword_medieval_b_small",0),("sword_medieval_b_small_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,

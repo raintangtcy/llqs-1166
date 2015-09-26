@@ -1,7 +1,7 @@
 @echo off
 @del Process_Log.txt
 
-cd C:\rain\tool\1166\Modules\llqs1166-1\Sources
+cd C:\rain\tool\1166\Modules\llqs1166\Sources
 
 echo Getting Header Files .........
 copy ".\headers\*.*" ".\" >>Process_Log.txt

@@ -13223,6 +13223,42 @@ scripts = [
           (set_result_string, "@+1 to {s1} while in inventory"),
           (set_trigger_result, 0xFFEEDD),
         (try_end),
+        #增加额外信息行，一共可增加8行，从0到7
+      (else_try),
+        (eq,":item_no","itm_jigong"),  #假设你所要改的物品,名字是itm_mod_item,这里就使得游戏里鼠标指向该物品时,条件成立
+        (try_begin),
+          (eq, ":extra_text_id", 0),  #设置第一行额外信息.
+          (set_result_string,"@亦 弓 亦 戟 "),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+          (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 1),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 2),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 3),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 4),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 5),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 6),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+#         (else_try),
+#           (eq, ":extra_text_id", 7),  #设置第一行额外信息.
+#           (set_result_string,"@Agility +2"),  #引号里的@符号 之后的文字全是在游戏里对物品的额外信息.
+#           (set_trigger_result, 0x00FFFF),  #在这个script里,set_trigger_result是用来显示颜色的.00ffff是天蓝色.
+        (try_end),
       (try_end),
   ]),
 

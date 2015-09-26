@@ -784,7 +784,8 @@ agent_get_player_id                    = 1724   # (agent_get_player_id,<destinat
 agent_set_invulnerable_shield          = 1725 # (agent_set_invulnerable_shield, <agent_id>),
 agent_get_wielded_item                 = 1726	# (agent_get_wielded_item,<destination>,<agent_id>,<hand_no>),
 agent_get_ammo                         = 1727	# (agent_get_ammo,<destination>,<agent_id>, <value>), #value = 1 gets ammo for wielded item, value = 0 gets ammo for all items
-#agent_get_ammo_for_slot                = 1825	# (agent_get_ammo_for_slot, <destination>, <agent_id>, <slot_no>), #slot no can be between 0-3
+#原来是注释掉的，llqs放开
+agent_get_ammo_for_slot                = 1825	# (agent_get_ammo_for_slot, <destination>, <agent_id>, <slot_no>), #slot no can be between 0-3
 agent_refill_ammo                      = 1728	# (agent_refill_ammo,<agent_id>),
 #agent_refill_wielded_shield_hit_points = 1692   # (agent_refill_wielded_shield_hit_points, <agent_id>),
 agent_has_item_equipped                = 1729	# (agent_has_item_equipped,<agent_id>,<item_id>),

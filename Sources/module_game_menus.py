@@ -118,9 +118,28 @@ game_menus = [
             (party_set_morale, "p_main_party", 100),
             (troop_set_name, "p_main_party", "@xiaoming"),
             (troop_add_gold, "p_main_party", 100000),
-#             (player_set_face_keys, "trp_player", "@0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000"),
+            (player_set_face_keys, "trp_player", "@0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000"),
 
-            (change_screen_return, 0),
+#             (assign, "$current_town", "p_town_6"),
+#             (party_get_slot, ":town_scene", "$current_town", slot_town_center),
+#            (modify_visitors_at_site, ":town_scene"),
+#            (reset_visitors),
+#             (jump_to_scene, ":town_scene"),
+
+#             (change_screen_return, 0),
+
+#assign start town as Praven
+            (assign, "$current_town", "p_town_6"),
+            (assign, "$g_starting_town", "$current_town"),
+            (assign, "$g_journey_string", "str_journey_to_praven"),
+
+            #skip starting quest
+            (assign, "$g_starting_town", "$current_town"),
+            (call_script, "script_player_arrived"),
+#             (assign, "$g_skip_starting_quest", 1),
+            (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+            (change_screen_return),
+
          ]
         ),
      ("continue",[],"Continue...",

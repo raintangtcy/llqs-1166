@@ -3136,6 +3136,48 @@ game_menus = [
       ]
   ),
 
+  (
+   "mod_option", 0,
+   "Mod options:",
+   "none",
+   [
+        #initial
+   ],
+   [
+        #增加金钱
+        ("mod_add_gold",[],"str_mod_add_gold",
+            [
+                (troop_add_gold, "p_main_troop", 100000),
+                (display_message, "@add 100000 gold"),
+            ]
+        ),
+        #增加部队
+        ("mod_add_troop",[],"str_mod_add_troop",
+            [
+                (party_add_members, "p_main_party", "trp_swadian_knight", 100),
+                (display_message, "@add 100 swadian_knight"),
+            ]
+        ),
+        #刷新商店
+        ("mod_refresh_store",[],"str_mod_rerlash_store",
+            [
+                (display_message, "@stores refreshed"),
+            ]
+        ),
+        #刷新野怪
+        ("mod_refresh_monster",[],"str_mod_refresh_monster",
+            [
+                (display_message, "@wild enemy refreshed"),
+            ]
+        ),
+        ("camp_action_4",[],"Back to camp menu.",
+            [
+                (jump_to_menu, "mnu_camp"),
+            ]
+        ),
+   ]
+  ),
+
 
   ("camp",mnf_scale_picture,
    "You set up camp. What do you want to do?",
@@ -3146,9 +3188,9 @@ game_menus = [
     ],
     [
      #add llqs's menu in Camp menu
-      ("camp_view_items",[],"str_view_all_items",
+      ("camp_mod_options",[],"str_mod_options",
        [
-        (jump_to_menu, "mnu_camp_action"),
+        (jump_to_menu, "mnu_mod_option"),
        ]
       ),
       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",

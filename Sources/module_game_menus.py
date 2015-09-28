@@ -3147,7 +3147,7 @@ game_menus = [
         #增加金钱
         ("mod_add_gold",[],"str_mod_add_gold",
             [
-                (troop_add_gold, "p_main_troop", 100000),
+                (troop_add_gold, "p_main_party", 100000),
                 (display_message, "@add 100000 gold"),
             ]
         ),

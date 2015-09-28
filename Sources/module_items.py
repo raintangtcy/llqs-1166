@@ -1280,9 +1280,39 @@ items = [
 
 #斧弩与斧弩专用矢
 ["bolts_acb","Bolts for Axe Cross Bow", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 10,weight(2.25)|abundance(255)|weapon_length(63)|thrust_damage(5,pierce)|max_ammo(150),imodbits_missile],
+ 10,weight(2.25)|abundance(255)|weapon_length(63)|thrust_damage(5,pierce)|max_ammo(500),imodbits_none,
+ [
+  (ti_on_missile_hit,
+   [
+    (store_trigger_param_1,":attacker"),
+
+    #目标点粒子效果
+    (particle_system_burst,"psys_village_fire_big",pos1,50),
+    (particle_system_burst,"psys_village_fire_smoke_big",pos1,50),
+#     (display_message, "@ Burst particle system"),
+
+    (agent_get_party_id,":attacker_party",":attacker"),
+    (try_for_agents,":agent_loop"),
+        (agent_get_position,pos2,":agent_loop"),
+        (get_distance_between_positions,":agent_loop_distance",pos1,pos2),
+        (agent_get_party_id,":agent_loop_party",":agent_loop"),
+        (try_begin),
+            (neg|gt,":agent_loop_distance",300), #此处的300是作用范围、单位为厘米
+            (neg|eq,":attacker_party",":agent_loop_party"),
+            (agent_deliver_damage_to_agent,":attacker",":agent_loop",50),#此处的50为伤害值
+            #击中一个敌人回血 5点
+            (store_agent_hit_points, reg36, ":attacker", 0),
+            (val_add, reg36, 5),
+            (agent_set_hit_points, ":attacker", reg36, 0),
+#     (display_message, "@ Recover 5 hit from Bolts for Axe Cross Bow"),
+        (try_end),
+    (try_end),
+#     (display_message, "@ AOE damage delivered within 3 meters."),
+   ]
+  ),
+ ]],
 ["axe_crossbow",         "Axe_Cross_Bow",         [("lightfunu",0)], itp_type_crossbow|itp_merchandise|itp_primary|itp_next_item_as_melee|itp_two_handed, itcf_shoot_crossbow|itcf_carry_crossbow_back,
-10 , abundance(255)|weight(3)|difficulty(14)|spd_rtng(75) | shoot_speed(75) | thrust_damage(70,pierce)|max_ammo(5)|accuracy(99),imodbits_none ],
+10 , abundance(255)|weight(3)|difficulty(14)|spd_rtng(90) | shoot_speed(90) | thrust_damage(70,pierce)|max_ammo(30)|accuracy(999),imodbits_none ],
 ["axe_crossbow_melee",         "Axe_Cross_Bow", [("lightfunu",0)], itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_wooden_parry, itc_nodachi|itcf_carry_crossbow_back,
 10 , abundance(255)|weight(3)|difficulty(14)|spd_rtng(90) | weapon_length(96)|swing_damage(42 , cut) | thrust_damage(0 ,  pierce),imodbits_none ],
 

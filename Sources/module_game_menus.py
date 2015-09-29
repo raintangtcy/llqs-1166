@@ -73,13 +73,6 @@ game_menus = [
             (troop_raise_skill, "trp_player","skl_horse_archery",1),
             (troop_raise_skill, "trp_player","skl_power_throw",1),
 
-#             (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,40),
-#             (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,40),
-#             (troop_raise_proficiency, "trp_player",wpt_polearm,40),
-#             (troop_raise_proficiency, "trp_player",wpt_archery,25),
-#             (troop_raise_proficiency, "trp_player",wpt_crossbow,10),
-#             (troop_raise_proficiency, "trp_player",wpt_throwing,10),
-
             #father background is noble
             (val_sub, ":difficulty", 1),
             (troop_set_slot, "trp_player", slot_troop_renown, 100),
@@ -118,15 +111,7 @@ game_menus = [
             (party_set_morale, "p_main_party", 100),
             (troop_set_name, "p_main_party", "@xiaoming"),
             (troop_add_gold, "p_main_party", 100000),
-            (player_set_face_keys, "trp_player", "@0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000"),
-
-#             (assign, "$current_town", "p_town_6"),
-#             (party_get_slot, ":town_scene", "$current_town", slot_town_center),
-#            (modify_visitors_at_site, ":town_scene"),
-#            (reset_visitors),
-#             (jump_to_scene, ":town_scene"),
-
-#             (change_screen_return, 0),
+#             (player_set_face_keys, "trp_player", "@0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000"),
 
 #assign start town as Praven
             (assign, "$current_town", "p_town_6"),
@@ -136,7 +121,6 @@ game_menus = [
             #skip starting quest
             (assign, "$g_starting_town", "$current_town"),
             (call_script, "script_player_arrived"),
-#             (assign, "$g_skip_starting_quest", 1),
             (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
             (change_screen_return),
 

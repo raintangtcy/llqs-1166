@@ -33089,7 +33089,7 @@ scripts = [
            #only enemies
            #only regulars
            (try_begin),
-           (lt, ":routed_ag_party_id", 0),
+           (gt, ":routed_ag_party_id", 0),
            (store_faction_of_party, ":faction_of_routed_agent_party", ":routed_ag_party_id"),
            (try_end),
 

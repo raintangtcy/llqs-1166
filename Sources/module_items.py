@@ -1289,25 +1289,40 @@ items = [
     #目标点粒子效果
     (particle_system_burst,"psys_village_fire_big",pos1,50),
     (particle_system_burst,"psys_village_fire_smoke_big",pos1,50),
-#     (display_message, "@ Burst particle system"),
 
-    (agent_get_party_id,":attacker_party",":attacker"),
-    (try_for_agents,":agent_loop"),
-        (agent_get_position,pos2,":agent_loop"),
-        (get_distance_between_positions,":agent_loop_distance",pos1,pos2),
-        (agent_get_party_id,":agent_loop_party",":agent_loop"),
-        (try_begin),
-            (neg|gt,":agent_loop_distance",300), #此处的300是作用范围、单位为厘米
-            (neg|eq,":attacker_party",":agent_loop_party"),
-            (agent_deliver_damage_to_agent,":attacker",":agent_loop",50),#此处的50为伤害值
-            #击中一个敌人回血 5点
-            (store_agent_hit_points, reg36, ":attacker", 0),
-            (val_add, reg36, 5),
-            (agent_set_hit_points, ":attacker", reg36, 0),
-#     (display_message, "@ Recover 5 hit from Bolts for Axe Cross Bow"),
-        (try_end),
-    (try_end),
-#     (display_message, "@ AOE damage delivered within 3 meters."),
+    #群伤与吸血
+#     (agent_get_party_id,":attacker_party",":attacker"),
+#     (try_for_agents,":agent_loop"),
+#         (agent_get_position,pos2,":agent_loop"),
+#         (get_distance_between_positions,":agent_loop_distance",pos1,pos2),
+#         (agent_get_party_id,":agent_loop_party",":agent_loop"),
+#         (try_begin),
+#             (neg|gt,":agent_loop_distance",300), #此处的300是作用范围、单位为厘米
+#             (neg|eq,":attacker_party",":agent_loop_party"),
+#             (agent_deliver_damage_to_agent,":attacker",":agent_loop",50),#此处的50为伤害值
+#             #击中一个敌人回血 5点
+#             (store_agent_hit_points, reg36, ":attacker", 0),
+#             (val_add, reg36, 5),
+#             (agent_set_hit_points, ":attacker", reg36, 0),
+#         (try_end),
+#     (try_end),
+
+   #召唤战士
+    (agent_is_alive, ":attacker"),
+    (position_move_y, pos1, 100),
+    (set_spawn_position, pos1),
+    (spawn_agent, "trp_swadian_knight"),
+    (assign, ":sommon_agent", reg0),
+    (agent_get_team, ":player_team", ":attacker"),
+#     (try_begin),
+#     (agent_is_ally, ":sommon_agent"),
+    (agent_set_team, ":sommon_agent", ":player_team"),
+#     (val_add, ":player_team", 2),
+#     (else_try),
+#     (agent_set_team, ":sommon_agent", ":player_team"),
+#     (val_add, ":player_team", 1),
+#     (try_end),
+
    ]
   ),
  ]],
@@ -1340,6 +1355,7 @@ items = [
 ["no_hand","Plate_Gloves", [("r_nohand",0)], itp_merchandise|itp_type_hand_armor,0, 1, weight(0.5)|abundance(255)|body_armor(0)|difficulty(0),imodbits_none],
 ["no_head", "Plate_Helmet", [("r_nohead",0)], itp_merchandise| itp_type_head_armor   ,0, 1 , weight(0.5)|abundance(255)|head_armor(0)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_none ],
 #连珠枪
+# ["flintlock_pistol_con", "Flintlock Pistol222", [("flintlock_pistol",0)], itp_type_musket |itp_merchandise|itp_primary ,itcf_shoot_musket|itcf_reload_musket, 230 , weight(1.5)|difficulty(0)|spd_rtng(99) | shoot_speed(20) | thrust_damage(45 ,pierce)|max_ammo(1)|accuracy(65),imodbits_none,
 ["flintlock_pistol_con", "Flintlock Pistol222", [("flintlock_pistol",0)], itp_type_pistol |itp_merchandise|itp_primary ,itcf_shoot_pistol|itcf_reload_pistol, 230 , weight(1.5)|difficulty(0)|spd_rtng(99) | shoot_speed(20) | thrust_damage(45 ,pierce)|max_ammo(1)|accuracy(65),imodbits_none,
  [
   #触发条件，武器攻击时
@@ -1404,7 +1420,7 @@ items = [
             (eq,":weapon_type",182),
             (assign,":var_13",1),
         (else_try),
-            (eq,":attacker_weapon_type",16),
+            (eq,":attacker_weapon_type",17),
             (eq,":weapon_type",18),
             (assign,":var_13",1),
 
@@ -1456,6 +1472,7 @@ items = [
         (position_rotate_z,2,1),
         (position_move_z,pos2,5),
         (add_missile,":attacker",2,":var_19",":attacker_weapon",":var_11",":missile",0),
+        (display_message, "@ shoot!"),
     (try_end),
 (try_end),
 
@@ -1465,7 +1482,7 @@ items = [
   ]],
 
 ["cartridges222","Cartridges222", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0,
- 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(50),imodbits_missile],
+ 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(220),imodbits_none],
 
 
 #special item in llqs mod end

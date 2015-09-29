@@ -36,11 +36,6 @@ from module_constants import *
 pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers]
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
-call_man_when_battle_start =(
-  ti_on_agent_hit, 0, 0, [],
-    [
-    ]
-)
 
 #author:llqs
 #deliver extra damage to enemy according to POWER STRIKE, POWER DRAW, POWER THROWN skill level
@@ -2319,7 +2314,13 @@ mission_templates = [
       (ti_on_agent_spawn, 0, 0, [],
        [
          (store_trigger_param_1, ":agent_no"),
+#         (assign, reg61, "$g_is_sommon"),
+#         (display_message, "@ $g_is_sommon is {reg61}"),
+#          (try_begin),
+#         (neg|eq, "$g_is_sommon", 1), ###llqs
          (call_script, "script_agent_reassign_team", ":agent_no"),
+#         (display_message, "@ $g_is_sommon is {reg61}, reassign team script called."),
+#          (try_end),
 
          (assign, ":initial_courage_score", 5000),
 
@@ -2332,16 +2333,17 @@ mission_templates = [
          (val_add, ":initial_courage_score", ":randomized_addition_courage"),
 
          (agent_get_party_id, ":agent_party", ":agent_no"),
-         (party_get_morale, ":cur_morale", ":agent_party"),
+        (gt, ":agent_party", 0),##by llqs.避免由于agent的party尚未指定，就走到这个触发器，而报错。彼时还取不到agent_party
+        (party_get_morale, ":cur_morale", ":agent_party"),
 
-         (store_sub, ":morale_effect_on_courage", ":cur_morale", 70),
-         (val_mul, ":morale_effect_on_courage", 30), #this can effect morale with -2100..900
-         (val_add, ":initial_courage_score", ":morale_effect_on_courage"),
+        (store_sub, ":morale_effect_on_courage", ":cur_morale", 70),
+        (val_mul, ":morale_effect_on_courage", 30), #this can effect morale with -2100..900
+        (val_add, ":initial_courage_score", ":morale_effect_on_courage"),
 
          #average = 5000 + 700 + 1500 = 7200; min : 5700, max : 8700
          #morale effect = min : -2100(party morale is 0), average : 0(party morale is 70), max : 900(party morale is 100)
          #min starting : 3600, max starting  : 9600, average starting : 7200
-         (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
+        (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
          ]),
 
       common_battle_init_banner,

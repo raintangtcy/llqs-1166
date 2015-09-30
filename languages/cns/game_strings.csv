@@ -2814,8 +2814,10 @@ str_disallow_ranged_weapons|禁 止 远 程 武 器
 str_ranged_weapons_are_disallowed|远 程 武 器 被 禁 止 。
 str_ranged_weapons_are_allowed|远 程 武 器 被 允 许 。
 str_duel_starts_in_reg0_seconds|决 斗 {reg0}秒 钟 后 开 始 … …
-str_extra_power_strike_damage|{s4}因 为 {reg14}级 的 {s6}技 能 , 用 {s5}对 {s2}造 成 了 {reg15}点 之 外 {reg13}点 额 外 伤 害 .
+str_extra_power_strike_damage|{s4} 因 为 {reg14} 级 的 {s6} 技 能 , 用 {s5} 对 {s2} 造 成 了 {reg15} 点 之 外 {reg13} 点 额 外 伤 害 .
 str_power_draw|强 弓
 str_power_throw|强 掷
 str_power_strike|强 击
-str_quick_start_for_test|快速开始...(默认背景设定: 男+父贵族+大草原孩子+侍从)
+str_all_stores_goods_refreshed|提 示 ： 卡 拉 迪 亚 大 陆 上 的 商 店 已 经 更 新 了 货 品。
+str_spawn_troop_nearby_with_s1_partyname|斥 候 报 告 : 附 近 发 现 一 支 {reg1} 人 的 {s1} 部 队 。
+str_add_10_swadia_knight|1 0 个 斯 瓦 迪 亚 骑 士 加 入 你 的 队 伍 。

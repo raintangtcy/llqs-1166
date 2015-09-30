@@ -7,6 +7,7 @@ from header_music import *
 from header_terrain_types import *
 
 from module_constants import *
+from module_troops import *
 
 ####################################################################################################################
 #  (menu-id, menu-flags, menu_text, mesh-name, [<operations>], [<options>]),
@@ -36,6 +37,7 @@ from module_constants import *
 # Note: The first Menu is the initial character creation menu.
 ####################################################################################################################
 
+
 game_menus = [
   ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Welcome, adventurer, to Mount and Blade: Warband. Before beginning the game you must create your character. Remember that in the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
@@ -43,7 +45,7 @@ game_menus = [
     [],
     [
      #测试用的快速新建人物菜单
-    ("quick_start",[],"str_quick_start_for_test",
+    ("quick_start",[],"Quick test",
       [
             (troop_set_type,"trp_player", 0),
 
@@ -85,14 +87,15 @@ game_menus = [
 #             (troop_add_item, "trp_player","itm_no_leg",0),
 #             (troop_add_item, "trp_player","itm_no_hand",0),
 #             (troop_add_item, "trp_player","itm_no_head",0),
-            (troop_add_item, "trp_player","itm_tab_shield_round_a",0),
+#             (troop_add_item, "trp_player","itm_tab_shield_round_a",0),
             (troop_add_item, "trp_player","itm_leather_jerkin",0),
             (troop_add_item, "trp_player","itm_leather_boots",0),
-            (troop_add_item, "trp_player","itm_hunting_crossbow",0),
             (troop_add_item, "trp_player","itm_courser"),
             (troop_add_item, "trp_player","itm_smoked_fish",0),
             (troop_add_item, "trp_player","itm_axe_crossbow",0),
             (troop_add_item, "trp_player","itm_bolts_acb",0),
+            (troop_set_auto_equip, "trp_player", 0),
+#             (troop_add_item, "trp_player","itm_hunting_crossbow",0),
 #             (troop_add_item, "trp_player","itm_golden_han_sword",0),
 #             (troop_add_item, "trp_player","itm_KanXiDaKanDao",0),
 #             (troop_add_item, "trp_player","itm_smith_slice",0),
@@ -109,9 +112,10 @@ game_menus = [
 
             (party_set_banner_icon, "p_main_party", 58),
             (party_set_morale, "p_main_party", 100),
-            (troop_set_name, "p_main_party", "@xiaoming"),
+            (troop_set_name, "p_main_party", "@llqs"),
             (troop_add_gold, "p_main_party", 100000),
-#             (player_set_face_keys, "trp_player", "@0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000"),
+#             (troop_set_face_keys, "trp_player", man_face_young_1),
+#             (face_keys_set_hair, "trp_player", 1),
 
 #assign start town as Praven
             (assign, "$current_town", "p_town_6"),
@@ -146,7 +150,7 @@ game_menus = [
     "none",
     [],
     [
-      ("town_0",[(eq, "$current_startup_quest_phase", 0),],"Already live in Praven, in the Kingdom of Swadia.",
+      ("town_0",[(eq, "$current_startup_quest_phase", 0),],"I'm living in Praven.",
        [
             #assign start town as Praven
             (assign, "$current_town", "p_town_6"),
@@ -3121,37 +3125,42 @@ game_menus = [
   ),
 
   (
-   "mod_option", 0,
-   "Mod options:",
+   "mod_menu", 0,
+   "Mod Menu",
    "none",
    [
         #initial
    ],
    [
         #增加金钱
-        ("mod_add_gold",[],"str_mod_add_gold",
+        ("mod_add_gold",[],"Add 100000 gold to player.",
             [
                 (troop_add_gold, "p_main_party", 100000),
-                (display_message, "@add 100000 gold"),
             ]
         ),
         #增加部队
-        ("mod_add_troop",[],"str_mod_add_troop",
+        ("mod_add_troop",[],"Add 10 swadian_knight to player's troop.",
             [
-                (party_add_members, "p_main_party", "trp_swadian_knight", 100),
-                (display_message, "@add 100 swadian_knight"),
+                (party_add_members, "p_main_party", "trp_swadian_knight", 10),
+                (display_message, "str_add_10_swadia_knight"),
             ]
         ),
         #刷新商店
-        ("mod_refresh_store",[],"str_mod_rerlash_store",
+        ("mod_refresh_store",[],"Refresh stores.",
             [
-                (display_message, "@stores refreshed"),
+                (call_script, "script_refresh_all_stores"),
             ]
         ),
-        #刷新野怪
-        ("mod_refresh_monster",[],"str_mod_refresh_monster",
+        #附近刷新海盗
+        ("mod_refresh_searaider_nearby",[],"Add a troop of sea raiders nearby.",
             [
-                (display_message, "@wild enemy refreshed"),
+                (call_script, "script_spawn_troop_nearby", "pt_sea_raiders",2),
+            ]
+        ),
+        #附近刷新劫匪
+        ("mod_refresh_looter_nearby",[],"Add a troop of looters nearby.",
+            [
+                (call_script, "script_spawn_troop_nearby", "pt_looters",1),
             ]
         ),
         ("camp_action_4",[],"Back to camp menu.",
@@ -3172,9 +3181,9 @@ game_menus = [
     ],
     [
      #add llqs's menu in Camp menu
-      ("camp_mod_options",[],"str_mod_options",
+      ("camp_mod_menu",[],"Mod Menu",
        [
-        (jump_to_menu, "mnu_mod_option"),
+        (jump_to_menu, "mnu_mod_menu"),
        ]
       ),
       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",

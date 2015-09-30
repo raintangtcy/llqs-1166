@@ -3205,7 +3205,8 @@ str_w = 3203
 str_power_strike = 3204
 str_power_throw = 3205
 str_power_draw = 3206
-str_quick_start_for_test = 3207
-str_view_all_items = 3208
+str_view_all_items = 3207
+str_spawn_troop_nearby_with_s1_partyname = 3208
+str_all_stores_goods_refreshed = 3209
 
 

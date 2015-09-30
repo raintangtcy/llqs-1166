@@ -47714,4 +47714,40 @@ scripts = [
      ]),
      ###
 
+     #llqs
+     #script: spawn_troop_nearby
+     #input: pt_name, radious
+     #output:none
+     #在玩家周围指定半径内刷出一队指定的队伍。一般用于刷新野怪，测试
+    (
+        "spawn_troop_nearby",
+        [
+            (store_script_param, ":pt_name", 1),
+            (store_script_param, ":radius", 2),
+            (set_spawn_radius, ":radius"),
+            (spawn_around_party, "p_main_party",":pt_name"),
+            (assign, ":new_party", reg0),
+            (party_get_num_companions, ":man_count", ":new_party"),
+            (assign, reg1, ":man_count"),
+            (str_store_party_name, s1, ":new_party"),
+            (display_message, "str_spawn_troop_nearby_with_s1_partyname"),
+        ]
+    ),
+
+    #llqs
+    #script: refresh_all_stores
+    #input:none
+    #output:none
+    #刷新所有城镇的四个商店
+    (
+        "refresh_all_stores",
+        [
+            (call_script, "script_refresh_center_inventories"),
+            (call_script, "script_refresh_center_armories"),
+            (call_script, "script_refresh_center_weaponsmiths"),
+            (call_script, "script_refresh_center_stables"),
+            (display_message, "str_all_stores_goods_refreshed"),
+        ]
+    ),
+
 ]

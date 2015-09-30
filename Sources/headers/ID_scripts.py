@@ -569,5 +569,7 @@ script_refresh_center_armories = 567
 script_refresh_center_weaponsmiths = 568
 script_refresh_center_stables = 569
 script_player_get_value_of_original_items = 570
+script_spawn_troop_nearby = 571
+script_refresh_all_stores = 572
 
 

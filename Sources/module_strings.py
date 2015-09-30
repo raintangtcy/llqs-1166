@@ -4099,6 +4099,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("power_strike", "Power Strike"),
   ("power_throw", "Power Throw"),
   ("power_draw", "Power Draw"),
-  ("quick_start_for_test","Quick Start for TEST...(Default setting: male+noble+steppe child+squire)"),
   ("view_all_items", "View All Equipments in Caradia"),
+  ("spawn_troop_nearby_with_s1_partyname", "Rogue report: A {s1} troop with {reg1} men detected nearby."),
+  ("all_stores_goods_refreshed", "Goods of all the stores in Caradia are updated."),
+  ("add_10_swadia_knight", "10 Swadia knight joined your party."),
 ]

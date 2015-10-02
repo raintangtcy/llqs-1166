@@ -294,3 +294,28 @@ def upgrade2(troops,troop1_id,troop2_id,troop3_id):
       cur_troop[13:13] = [0, troop2_no, troop3_no]
     else:
       cur_troop[14:14] = [troop2_no, troop3_no]
+
+# def upgrade3(troops,troop1_id,troop2_id,troop3_id,troop4_id):
+#   troop1_no = find_troop(troops,troop1_id)
+#   troop2_no = find_troop(troops,troop2_id)
+#   troop3_no = find_troop(troops,troop3_id)
+#   troop4_no = find_troop(troops,troop4_id)
+#   if (troop1_no == -1):
+#     print "Error with upgrade3 def: Unable to find troop1-id: " + troop1_id
+#   elif (troop2_no == -1):
+#     print "Error with upgrade3 def: Unable to find troop2-id: " + troop2_id
+#   elif (troop3_no == -1):
+#     print "Error with upgrade3 def: Unable to find troop3-id: " + troop3_id
+#   elif (troop4_no == -1):
+#     print "Error with upgrade3 def: Unable to find troop4-id: " + troop4_id
+#   else:
+#     cur_troop = troops[troop1_no]
+#     cur_troop_length = len(cur_troop)
+#     if cur_troop_length == 11:
+#       cur_troop[11:11] = [0, 0, 0, troop2_no, troop3_no, troop4_no]
+#     elif cur_troop_length == 12:
+#       cur_troop[12:12] = [0, 0, troop2_no, troop3_no, troop4_no]
+#     elif cur_troop_length == 13:
+#       cur_troop[13:13] = [0, troop2_no, troop3_no, troop4_no]
+#     else:
+#       cur_troop[14:14] = [troop2_no, troop3_no, troop4_no]

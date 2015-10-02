@@ -39,6 +39,17 @@ scripts = [
       (party_set_name, "p_main_party", s5),
       (call_script, "script_update_party_creation_random_limits"),
       (assign, "$g_player_party_icon", -1),
+      (assign, "$g_auto_sell_price_limit", 100),
+
+      #llqs
+      # food
+      (try_for_range, ":cur_food", food_begin, food_end),
+        (item_set_slot, ":cur_food", slot_item_food_portion, 1),
+      (try_end),
+
+      #(call_script, "script_init_item_data"),
+      (call_script, "script_init_item_modifier_value_multiplier"),
+      #llqs
 
 	  #Warband changes begin -- set this early
 	  (try_for_range, ":npc", 0, kingdom_ladies_end),
@@ -47749,5 +47760,267 @@ scripts = [
             (display_message, "str_all_stores_goods_refreshed"),
         ]
     ),
+
+    #llqs
+    #script: auto_sell_items
+    #input: ":price_up_limit", ":is_sell_food", ":is_sell_horse"
+    #output: none
+    #指定出售物品的价格上限，是否售卖食物，是否售卖马匹， 然后出售符合的所有物品
+    (
+        "auto_sell_items",
+        [
+#             (store_troop_gold, ":total_value", "trp_player"),
+            (assign, ":total_value", 0),
+            (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+            (try_for_range_backwards, ":i_slot", 10, ":inv_cap"),
+                (troop_get_inventory_slot, ":item_id", "trp_player", ":i_slot"),
+                (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+                (try_begin),
+                    (gt, ":item_id", -1),
+                    (item_get_type, ":item_type", ":item_id"),
+                    (neg|eq, itp_type_book, ":item_type"),#不是书
+                    (neg|eq, itp_type_animal, ":item_type"),#不是动物
+                    (neg|eq, itp_type_goods, ":item_type"),#不是商品
+
+                    (call_script, "script_get_item_value_with_imod", ":item_id", ":imod"),
+                    (assign, ":sell_price", reg0),
+                    (val_div, ":sell_price", 100),
+                    (call_script, "script_game_get_item_sell_price_factor", ":item_id"),
+                    (val_mul, ":sell_price",  reg0),
+                    (val_div, ":sell_price", 100),#物品价值被放大到了100倍，需要再除以100
+                    (val_max, ":sell_price", 1),
+
+                    (troop_remove_item, "trp_player", ":item_id"),
+                    (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+                    (val_add, ":total_value", ":sell_price"),
+                (try_end),
+            (try_end),
+            (val_mul, ":total_value", 90),
+            (val_div, ":total_value", 100),
+            (troop_add_gold, "trp_player", ":total_value"),
+        ]
+    ),
+
+    #llqs
+    #script: sommon_troop
+    #input: ":sommoner", ":trp_type", pos1
+    #output: none
+    #sommoner 在 pos1 的 Y+1 位置召唤一个trp_type
+    (
+        "cf_sommon_troop",
+        [
+            (store_script_param, ":sommoner", 1),
+            (store_script_param, ":trp_type", 2),
+
+            (agent_is_alive, ":sommoner"),
+            (position_move_y, pos1, 1),
+            (set_spawn_position, pos1),
+            (spawn_agent, ":trp_type"),
+            (agent_get_team, ":player_team", ":sommoner"),
+            (agent_set_team, reg0, ":player_team"),
+        ]
+    ),
+
+# #来自领军
+# ("auto_sell", [
+#     (store_script_param_1, ":customer"),
+#     (store_script_param_2, ":merchant"),
+#
+#     (item_set_slot, itp_type_book, slot_item_type_not_for_sell, 1),
+#     (item_set_slot, itp_type_goods, slot_item_type_not_for_sell, 1),
+#     (item_set_slot, itp_type_animal, slot_item_type_not_for_sell, 1),
+#     (store_free_inventory_capacity, ":space", ":merchant"),
+#     (troop_sort_inventory, ":customer"),
+#
+#     (troop_get_inventory_capacity, ":inv_cap", ":customer"),
+#     (try_for_range_backwards, ":i_slot", 10, ":inv_cap"),
+#       (troop_get_inventory_slot, ":item", ":customer", ":i_slot"),
+#       (troop_get_inventory_slot_modifier, ":imod", ":customer", ":i_slot"),
+#       (gt, ":item", -1),
+#       (item_get_type, ":type", ":item"),
+#       (item_slot_eq, ":type", slot_item_type_not_for_sell, 0),
+#       (item_slot_eq, ":item", slot_item_special_item, 0),
+#
+#       (call_script, "script_get_item_value_with_imod", ":item", ":imod"),
+#       (assign, ":score", reg0),
+#       (val_div, ":score", 100),
+#       (call_script, "script_game_get_item_sell_price_factor", ":item"),
+#       (assign, ":sell_price_factor", reg0),
+#       (val_mul, ":score", ":sell_price_factor"),
+#       (val_div, ":score", 100),
+#       (val_max, ":score",1),
+#
+#       (le, ":score", "$g_auto_sell_price_limit"),
+#       (store_troop_gold, ":m_gold", ":merchant"),
+#       (le, ":score", ":m_gold"),
+#       (gt, ":space", 0),
+#
+#       (troop_add_item, ":merchant", ":item", ":imod"),
+#       (val_sub, ":space", 1),
+#       (troop_set_inventory_slot, ":customer", ":i_slot", -1),
+#       (troop_remove_gold, ":merchant", ":score"),
+#       (troop_add_gold, ":customer", ":score"),
+#     (try_end),
+#   ]),
+
+# #来自领军
+#   ("auto_sell_all", [
+#     (try_begin),
+#       (is_between, "$current_town", towns_begin, towns_end),
+#       (party_get_slot, ":town_weaponsmith", "$current_town", slot_town_weaponsmith),
+#       (party_get_slot, ":town_armorer", "$current_town", slot_town_armorer),
+#       (party_get_slot, ":town_horse_merchant", "$current_town", slot_town_horse_merchant),
+#       (party_get_slot, ":town_merchant", "$current_town", slot_town_merchant),
+#       (store_troop_gold, ":begin_gold_1", ":town_weaponsmith"),
+#       (store_troop_gold, ":begin_gold_2", ":town_armorer"),
+#       (store_troop_gold, ":begin_gold_3", ":town_horse_merchant"),
+#       (store_troop_gold, ":begin_gold_4", ":town_merchant"),
+#     (else_try),
+#       (is_between, "$current_town", villages_begin, villages_end),
+#       (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+#     (try_end),
+#
+#     (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+#     (try_for_range_backwards, ":i_stack", 0, ":num_stacks"),
+#       (party_stack_get_troop_id,":stack_troop","p_main_party",":i_stack"),
+#       (troop_is_hero, ":stack_troop"),
+#       (neq, ":stack_troop", "trp_player"),
+#       (store_free_inventory_capacity, ":begin_space", ":stack_troop"),
+#       (store_troop_gold, ":begin_gold", ":stack_troop"),
+#       (try_begin),
+#         (is_between, "$current_town", towns_begin, towns_end),
+#         (call_script, "script_gather_money_to_one_town_merchant", ":town_weaponsmith"),
+#         (call_script, "script_auto_sell", ":stack_troop", ":town_weaponsmith"),
+#         (call_script, "script_gather_money_to_one_town_merchant", ":town_armorer"),
+#         (call_script, "script_auto_sell", ":stack_troop", ":town_armorer"),
+#         (call_script, "script_gather_money_to_one_town_merchant", ":town_horse_merchant"),
+#         (call_script, "script_auto_sell", ":stack_troop", ":town_horse_merchant"),
+#         (call_script, "script_gather_money_to_one_town_merchant", ":town_merchant"),
+#         (call_script, "script_auto_sell", ":stack_troop", ":town_merchant"),
+#       (else_try),
+#         (is_between, "$current_town", villages_begin, villages_end),
+#         (call_script, "script_auto_sell", ":stack_troop", ":merchant_troop"),
+#       (try_end),
+#       (store_free_inventory_capacity, ":end_space", ":stack_troop"),
+#       (store_troop_gold, ":end_gold", ":stack_troop"),
+#       (neq, ":end_gold", ":begin_gold"),
+#       (store_sub, ":gained_gold", ":end_gold", ":begin_gold"),
+#       (set_show_messages, 0),
+#       (troop_remove_gold, ":stack_troop", ":gained_gold"),
+#       (troop_add_gold, "trp_player", ":gained_gold"),
+#       (set_show_messages, 1),
+#       (store_sub, reg1, ":end_space", ":begin_space"),
+#       (assign, reg2, ":gained_gold"),
+#       (store_sub, reg3, reg1, 1),
+#       (store_sub, reg4, reg2, 1),
+#       (str_store_troop_name, s1, ":stack_troop"),
+#       (display_message, "@{s1} have sold {reg1} {reg3?items:item} and you gained {reg2} {reg4?denars:denar}."),
+#     (try_end),
+#     (try_begin),
+#       (is_between, "$current_town", towns_begin, towns_end),
+#       (call_script, "script_distribute_money_to_all_town_merchant", ":begin_gold_1", ":begin_gold_2", ":begin_gold_3", ":begin_gold_4"),
+#     (try_end),
+#   ]),
+
+# #来自领军
+# ("sort_food",
+#     [
+#       (store_script_param, ":troop_no", 1),
+#
+#       (troop_get_inventory_capacity, ":inv_cap", ":troop_no"),
+#       (try_for_range, ":i_slot", 10, ":inv_cap"),
+#         (troop_get_inventory_slot, ":item", ":troop_no", ":i_slot"),
+#         (troop_get_inventory_slot_modifier, ":imod", ":troop_no", ":i_slot"),
+#         (gt, ":item", -1),
+#         (is_between, ":item", food_begin, food_end),
+#         (try_for_range, ":i_slot_2", ":i_slot", ":inv_cap"),
+#           (neq, ":i_slot_2", ":i_slot"),
+#           (troop_get_inventory_slot, ":item_2", ":troop_no", ":i_slot_2"),
+#           (troop_get_inventory_slot_modifier, ":imod_2", ":troop_no", ":i_slot_2"),
+#           (gt, ":item_2", -1),
+#           (eq, ":item_2", ":item"),
+#           (eq, ":imod_2", ":imod"),
+#           (troop_inventory_slot_get_item_max_amount, ":max_amount", ":troop_no", ":i_slot"),
+#           (troop_inventory_slot_get_item_amount, ":item_amount", ":troop_no", ":i_slot"),
+#           (troop_inventory_slot_get_item_amount, ":item_amount_2", ":troop_no", ":i_slot_2"),
+#           (store_add, ":total_amount", ":item_amount", ":item_amount_2"),
+#           (store_sub, ":dest_amount_i_slot_2", ":total_amount", ":max_amount"),
+#           (try_begin),
+#             (gt, ":dest_amount_i_slot_2", 0),
+#             (troop_inventory_slot_set_item_amount, ":troop_no", ":i_slot", ":max_amount"),
+#             (troop_inventory_slot_set_item_amount, ":troop_no", ":i_slot_2", ":dest_amount_i_slot_2"),
+#             (assign, ":i_slot_2", 0), # stop
+#           (else_try),
+#             (troop_inventory_slot_set_item_amount, ":troop_no", ":i_slot", ":total_amount"),
+#             (troop_set_inventory_slot, ":troop_no", ":i_slot_2", -1), # delete it
+#           (try_end),
+#         (try_end),
+#       (try_end),
+#     ]),
+
+#来自领军
+("get_item_value_with_imod",
+  [# returns the sell price based on the item's money value and its imod
+    (store_script_param, ":item", 1),
+    (store_script_param, ":imod", 2),
+
+    (try_begin),
+      (gt, ":item", -1),
+      (store_item_value, ":score", ":item"),
+      (item_get_slot, ":imod_multiplier", ":imod", slot_item_modifier_multiplier),
+      (val_mul, ":score", ":imod_multiplier"),
+    (else_try),
+      (assign, ":score", 0),
+    (try_end),
+    (assign, reg0, ":score"),
+  ]),
+
+#来自领军
+("init_item_modifier_value_multiplier",
+    [
+      (item_set_slot, imod_plain, slot_item_modifier_multiplier, 100),
+      (item_set_slot, imod_cracked, slot_item_modifier_multiplier, 50),
+      (item_set_slot, imod_rusty, slot_item_modifier_multiplier, 55),
+      (item_set_slot, imod_bent, slot_item_modifier_multiplier, 65),
+      (item_set_slot, imod_chipped, slot_item_modifier_multiplier, 72),
+      (item_set_slot, imod_battered, slot_item_modifier_multiplier, 75),
+      (item_set_slot, imod_poor, slot_item_modifier_multiplier, 80),
+      (item_set_slot, imod_crude, slot_item_modifier_multiplier, 83),
+      (item_set_slot, imod_old, slot_item_modifier_multiplier, 86),
+      (item_set_slot, imod_cheap, slot_item_modifier_multiplier, 90),
+      (item_set_slot, imod_fine, slot_item_modifier_multiplier, 190),
+      (item_set_slot, imod_well_made, slot_item_modifier_multiplier, 250),
+      (item_set_slot, imod_sharp, slot_item_modifier_multiplier, 160),
+      (item_set_slot, imod_balanced, slot_item_modifier_multiplier, 350),
+      (item_set_slot, imod_tempered, slot_item_modifier_multiplier, 670),
+      (item_set_slot, imod_deadly, slot_item_modifier_multiplier, 850),
+      (item_set_slot, imod_exquisite, slot_item_modifier_multiplier, 1450),
+      (item_set_slot, imod_masterwork, slot_item_modifier_multiplier, 1750),
+      (item_set_slot, imod_heavy, slot_item_modifier_multiplier, 190),
+      (item_set_slot, imod_strong, slot_item_modifier_multiplier, 490),
+      (item_set_slot, imod_powerful, slot_item_modifier_multiplier, 320),
+      (item_set_slot, imod_tattered, slot_item_modifier_multiplier, 50),
+      (item_set_slot, imod_ragged, slot_item_modifier_multiplier, 70),
+      (item_set_slot, imod_rough, slot_item_modifier_multiplier, 60),
+      (item_set_slot, imod_sturdy, slot_item_modifier_multiplier, 170),
+      (item_set_slot, imod_thick, slot_item_modifier_multiplier, 260),
+      (item_set_slot, imod_hardened, slot_item_modifier_multiplier, 390),
+      (item_set_slot, imod_reinforced, slot_item_modifier_multiplier, 650),
+      (item_set_slot, imod_superb, slot_item_modifier_multiplier, 250),
+      (item_set_slot, imod_lordly, slot_item_modifier_multiplier, 1150),
+      (item_set_slot, imod_lame, slot_item_modifier_multiplier, 40),
+      (item_set_slot, imod_swaybacked, slot_item_modifier_multiplier, 60),
+      (item_set_slot, imod_stubborn, slot_item_modifier_multiplier, 90),
+      (item_set_slot, imod_timid, slot_item_modifier_multiplier, 180),
+      (item_set_slot, imod_meek, slot_item_modifier_multiplier, 180),
+      (item_set_slot, imod_spirited, slot_item_modifier_multiplier, 650),
+      (item_set_slot, imod_champion, slot_item_modifier_multiplier, 1450),
+      (item_set_slot, imod_fresh, slot_item_modifier_multiplier, 100),
+      (item_set_slot, imod_day_old, slot_item_modifier_multiplier, 100),
+      (item_set_slot, imod_two_day_old, slot_item_modifier_multiplier, 90),
+      (item_set_slot, imod_smelling, slot_item_modifier_multiplier, 40),
+      (item_set_slot, imod_rotten, slot_item_modifier_multiplier, 5),
+      (item_set_slot, imod_large_bag, slot_item_modifier_multiplier, 190),
+  ]),
 
 ]

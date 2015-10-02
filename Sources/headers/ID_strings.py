@@ -3208,5 +3208,6 @@ str_power_draw = 3206
 str_view_all_items = 3207
 str_spawn_troop_nearby_with_s1_partyname = 3208
 str_all_stores_goods_refreshed = 3209
+str_add_10_swadia_knight = 3210
 
 

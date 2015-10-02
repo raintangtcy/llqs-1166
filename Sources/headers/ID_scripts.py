@@ -571,5 +571,9 @@ script_refresh_center_stables = 569
 script_player_get_value_of_original_items = 570
 script_spawn_troop_nearby = 571
 script_refresh_all_stores = 572
+script_auto_sell_items = 573
+script_cf_sommon_troop = 574
+script_get_item_value_with_imod = 575
+script_init_item_modifier_value_multiplier = 576
 
 

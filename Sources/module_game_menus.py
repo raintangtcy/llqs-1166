@@ -3132,6 +3132,18 @@ game_menus = [
         #initial
    ],
    [
+        #临时测试脚本
+        ("mod_tmp_test",[],"Test",
+            [
+                (call_script, "script_auto_sell_items"),
+            ]
+        ),
+        #增加部队经验
+        ("mod_add_xp",[],"Add 300000 xp to player team.",
+            [
+                (party_add_xp, "p_main_party", 300000 ),
+            ]
+        ),
         #增加金钱
         ("mod_add_gold",[],"Add 100000 gold to player.",
             [
@@ -3186,7 +3198,8 @@ game_menus = [
         (jump_to_menu, "mnu_mod_menu"),
        ]
       ),
-      ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
+      ("camp_action_1",[],"Walk around.",
+#       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
        [(set_jump_mission,"mt_ai_training"),
         (call_script, "script_setup_random_scene"),
         (change_screen_mission),
@@ -3436,7 +3449,12 @@ game_menus = [
      ],
     [
 
-
+      #临时测试脚本
+        ("mod_delegate_selling",[],"Delegate assistant to sell goods.(10% gold lost, no books, animals, goods, no value greater than 100 Dinar)",
+            [
+                (call_script, "script_auto_sell_items"),
+            ]
+        ),
       ("camp_recruit_prisoners",
        [(troops_can_join, 1),
         (store_current_hours, ":cur_time"),
@@ -11243,6 +11261,11 @@ game_menus = [
        [
            (jump_to_menu,"mnu_town_trade_assessment_begin"),
         ]),
+#       ("auto_sell",[],
+#        "Sell items automatically.",
+#        [
+#           (jump_to_menu,"mnu_trade_auto_sell_begin"),
+#         ]),
       ("trade_with_arms_merchant",[(party_slot_ge, "$current_town", slot_town_weaponsmith, 1)],
        "Trade with the arms merchant.",
        [

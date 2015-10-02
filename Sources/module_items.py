@@ -1298,7 +1298,7 @@ items = [
 #         (agent_get_party_id,":agent_loop_party",":agent_loop"),
 #         (try_begin),
 #             (neg|gt,":agent_loop_distance",300), #此处的300是作用范围、单位为厘米
-#             (neg|eq,":attacker_party",":agent_loop_party"),
+#             (neg|eq,":attacker_party",":agentl_loop_party"),
 #             (agent_deliver_damage_to_agent,":attacker",":agent_loop",50),#此处的50为伤害值
 #             #击中一个敌人回血 5点
 #             (store_agent_hit_points, reg36, ":attacker", 0),
@@ -1308,20 +1308,14 @@ items = [
 #     (try_end),
 
    #召唤战士
-    (agent_is_alive, ":attacker"),
-    (position_move_y, pos1, 100),
-    (set_spawn_position, pos1),
-    (spawn_agent, "trp_swadian_knight"),
-    (assign, ":sommon_agent", reg0),
-    (agent_get_team, ":player_team", ":attacker"),
-#     (try_begin),
-#     (agent_is_ally, ":sommon_agent"),
-    (agent_set_team, ":sommon_agent", ":player_team"),
-#     (val_add, ":player_team", 2),
-#     (else_try),
+    (call_script, "script_cf_sommon_troop", ":attacker", "trp_swadian_knight"),
+#     (agent_is_alive, ":attacker"),
+#     (position_move_y, pos1, 100),
+#     (set_spawn_position, pos1),
+#     (spawn_agent, "trp_swadian_knight"),
+#     (assign, ":sommon_agent", reg0),
+#     (agent_get_team, ":player_team", ":attacker"),
 #     (agent_set_team, ":sommon_agent", ":player_team"),
-#     (val_add, ":player_team", 1),
-#     (try_end),
 
    ]
   ),

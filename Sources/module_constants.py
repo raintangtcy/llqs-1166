@@ -1,4 +1,4 @@
-﻿#coding=utf8
+#coding=utf8
 from ID_items import *
 from ID_quests import *
 from ID_factions import *
@@ -91,7 +91,7 @@ slot_agent_walker_occupation      = 25  ###散步的人的职业
 slot_agent_bought_horse           = 26
 
 
-    
+
 ########################################################
 ##  FACTION SLOTS          #############################国家slot
 ########################################################
@@ -260,11 +260,11 @@ slot_faction_sum_advice_about_factions_begin 			= 150
 	# reGonalist/dynastic (based around an alternate ruling house
 	# regionalist/republican
 	# messianic (ie, Canudos)
-	
+
 ########################################################
 ##  PARTY SLOTS            #############################队伍slot
 ########################################################
-###队伍类型 
+###队伍类型
 slot_party_type                = 0  #spt_caravan, spt_town, spt_castle
 
 ###队伍撤退标签
@@ -430,7 +430,7 @@ argument_commons      = 2
 ###效益
 argument_benefit      = 3 #deprecate for reward     ###反对奖励
 ###奖励
-argument_reward       = 3 
+argument_reward       = 3
 
 ###胜利
 argument_victory      = 4
@@ -495,7 +495,7 @@ slot_center_current_improvement   = 124
 slot_center_improvement_end_hour  = 125
 
 ###队伍上次和中心贸易
-slot_party_last_traded_center     = 126 
+slot_party_last_traded_center     = 126
 
 
 
@@ -591,7 +591,7 @@ slot_town_trade_routes_end = slot_town_trade_route_15 + 1
 num_trade_goods = itm_siege_supply - itm_spice
 slot_town_trade_good_productions_begin       = 500 #a harmless number, until it can be deprecated
 
-#These affect production but in some cases also demand, so it is perhaps easier to itemize them than to have separate 
+#These affect production but in some cases also demand, so it is perhaps easier to itemize them than to have separate
 
 ###村庄牛数量
 slot_village_number_of_cattle   = 205
@@ -811,7 +811,7 @@ slot_troop_occupation          = 2  # 0 = free, 1 = merchant
 
 
 ###troop状态
-slot_troop_state               = 3  
+slot_troop_state               = 3
 ###最后交谈时间
 slot_troop_last_talk_time      = 4
 ###我也用这个求爱的状态——可能成为累赘
@@ -887,7 +887,7 @@ slot_troop_mother              = 32
 slot_troop_guardian            = 33 #Usually siblings are identified by a common parent.This is used for brothers if the father is not an active npc. At some point we might introduce geneologies
 ###未婚夫、未婚妻
 slot_troop_betrothed           = 34 #Obviously superseded once slot_troop_spouse is filled
-#other relations are derived from one's parents 
+#other relations are derived from one's parents
 #slot_troop_daughter            = 33
 #slot_troop_son                 = 34
 #slot_troop_sibling             = 35
@@ -941,8 +941,8 @@ slot_troop_intrigue_impatience = 51
 
 #slot_troop_honorable          = 50
 #slot_troop_merciful          = 51
-###性格类型 
-###lrep_quarrelsome好辩的 lrep_debauched放荡的 lrep_goodnatured善良的 lrep_martial好战的 
+###性格类型
+###lrep_quarrelsome好辩的 lrep_debauched放荡的 lrep_goodnatured善良的 lrep_martial好战的
 ###lrep_upstanding正直的 lrep_selfrighteous自命正直 lrep_cunning狡猾的 lrep_roguish无赖的
 
 ###lrep_adventurous冒险的 lrep_otherworldly幻想的 lrep_conventional传统的 lrep_moralist道德的 lrep_ambitious野心勃勃的
@@ -1167,14 +1167,14 @@ slot_troop_enemy_routed_agents                  = 148
 
 #Special quest slots ###特殊任务槽
 slot_troop_mission_participation        = 149
-mp_unaware                              = 0 
-mp_stay_out                             = 1 
-mp_prison_break_fight                   = 2 
-mp_prison_break_stand_back              = 3 
-mp_prison_break_escaped                 = 4 
-mp_prison_break_caught                  = 5 
+mp_unaware                              = 0
+mp_stay_out                             = 1
+mp_prison_break_fight                   = 2
+mp_prison_break_stand_back              = 3
+mp_prison_break_escaped                 = 4
+mp_prison_break_caught                  = 5
 
-#Below are some constants to expand the political system a bit. The idea is to make quarrels less random, but instead make them serve a rational purpose -- as a disincentive to lords to seek 
+#Below are some constants to expand the political system a bit. The idea is to make quarrels less random, but instead make them serve a rational purpose -- as a disincentive to lords to seek
 ###下面是一些常数扩大政治系统一点。这个想法是为了让争吵不随机，而是让他们为理性的目的——为防止领主寻求
 
 ###troop争论
@@ -1215,9 +1215,9 @@ troop_slots_reserved_for_relations_start        = 165 #this is based on id_troop
 
 slot_troop_relations_begin				= 0 #this creates an array for relations between troops
 											#Right now, lords start at 165 and run to around 290, including pretenders
-											
-											
-											
+
+
+
 ########################################################
 ##  PLAYER SLOTS           #############################玩家slot
 ########################################################
@@ -1434,7 +1434,7 @@ logent_caravan_accosted          = 3 #in caravan accosted, center and troop obje
 logent_traveller_attacked        = 3 #in traveller attacked, origin and destination are center and troop object, and the attacker's faction is the object ###在攻击的来源和目的地的旅行，是中心、队伍的对象，和攻击者的派系的对象
 
 ###帮助农民事件日志
-logent_helped_peasants           = 4 
+logent_helped_peasants           = 4
 
 ###队伍贸易事件日志
 logent_party_traded              = 5
@@ -1569,11 +1569,11 @@ logent_war_declaration_types_end							= 95
 #lord reputation type, for commentaries ###领主的声誉，评论
 #"Martial" will be twice as common as the other types ###好战的将为其他类型的两倍
 
-###lrep_quarrelsome好辩的  lrep_debauched放荡的          lrep_goodnatured善良的   lrep_martial好战的 
+###lrep_quarrelsome好辩的  lrep_debauched放荡的          lrep_goodnatured善良的   lrep_martial好战的
 ###lrep_upstanding正直的   lrep_selfrighteous自命正直    lrep_roguish无赖的        lrep_cunning狡猾的
 ###lrep_adventurous冒险的 lrep_otherworldly幻想的 lrep_conventional传统的 lrep_moralist道德的 lrep_ambitious野心勃勃的
 
-lrep_none           = 0 
+lrep_none           = 0
 ###侠义的但不太同情或反省，例如李察狮心王，你的平均第十四世纪法国男爵
 lrep_martial        = 1 #chivalrous but not terribly empathetic or introspective, - eg Richard Lionheart, your average 14th century French baron
 ###恶意的，愤世嫉俗的，有点偏执，可能冲动——例如罗伯特Graves提比略，一些查尔斯六世的叔叔
@@ -1603,11 +1603,11 @@ lrep_conventional    = 21 #Charlotte York in SATC seasons 1-2, probably most med
 ###爱冒险的顽皮的。然而，这基本上意味着她喜欢旅行和狩猎，也许渴望更大的冒险。然而，中世纪贵族妇女斗争是罕见的，和那些试图独立生活的人更是凤毛麟角，和最好的同伴一样代表个人前脚本
 lrep_adventurous     = 22 #Tomboyish. However, this basically means that she likes to travel and hunt, and perhaps yearn for wider adventures. However, medieval noblewomen who fight are rare, and those that attempt to live independently of a man are rarer still, and best represented by pre-scripted individuals like companions
 ###超世俗的 倾向于神秘主义，浪漫主义。
-lrep_otherworldly    = 23 #Prone to mysticism, romantic. 
+lrep_otherworldly    = 23 #Prone to mysticism, romantic.
 ###有雄心的 麦克白夫人
 lrep_ambitious       = 24 #Lady Macbeth
 ###道德家 直立或恩人——以等效nobless帮忙，她作为库的道德传统的角色，很严重。基于松散的克里斯蒂娜比萨
-lrep_moralist        = 25 #Equivalent of upstanding or benefactor -- takes nobless oblige, and her traditional role as repository of morality, very seriously. Based loosely on Christine de Pisa 
+lrep_moralist        = 25 #Equivalent of upstanding or benefactor -- takes nobless oblige, and her traditional role as repository of morality, very seriously. Based loosely on Christine de Pisa
 
 
 
@@ -1636,7 +1636,7 @@ courtship_poem_tragic      = 1 #Emphasizes longing, Laila and Majnoon
 ###挪威传奇的女英雄
 courtship_poem_heroic      = 2 #Norse sagas with female heroines
 ###重点对诙谐的妙语——contrasto（西西里学校讽刺）
-courtship_poem_comic       = 3 #Emphasis on witty repartee -- Contrasto (Sicilian school satire) 
+courtship_poem_comic       = 3 #Emphasis on witty repartee -- Contrasto (Sicilian school satire)
 ###苏菲诗歌。歌曲
 courtship_poem_mystic      = 4 #Sufi poetry. Song of Songs
 ###将女人作为一个文明的力量——玫瑰的浪漫，爱的城堡围攻
@@ -1652,7 +1652,7 @@ courtship_poem_allegoric   = 5 #Idealizes woman as a civilizing force -- the Rom
 tutorial_fighters_begin = "trp_tutorial_fighter_1"
 tutorial_fighters_end   = "trp_tutorial_archer_1"
 
-#Walker types: 
+#Walker types:
 walkert_default            = 0
 walkert_needs_money        = 1
 walkert_needs_money_helped = 2
@@ -2017,7 +2017,7 @@ note_troop_location = 3
 
 ##########################战斗战术
 #battle tactics
-btactic_hold = 1            ###坚守 
+btactic_hold = 1            ###坚守
 btactic_follow_leader = 2   ###跟随
 btactic_charge = 3          ###冲锋
 btactic_stand_ground = 4    ###站在原地

@@ -2146,19 +2146,219 @@ troops = [
    def_attrib|level(1),wp_melee(10),knows_athletics_1|knows_ironflesh_2|knows_shield_2, 0x00000000320410022d2595495491afa400000000001d9ae30000000000000000, mercenary_face_2],
 
   ["relative_of_merchants_end","relative_of_merchants_end","relative_of_merchants_end",tf_hero, 0,0, fac_commoners,[],def_attrib|level(2),wp(20),knows_inventory_management_10,0],
+
+
+  ##llqs
+  #进阶新兵
+  ["llqs_newbie","LLQS Advanced Recruit","LLQS Advanced Recruits",
+   tf_guarantee_boots|tf_guarantee_armor,
+   0,0,
+   fac_player_faction,
+   [itm_hatchet,itm_tab_shield_round_a,itm_stones,itm_rawhide_coat,itm_nomad_boots,itm_arena_turban_blue,itm_arena_turban_yellow,itm_hide_boots],
+   def_attrib|level(9),
+   wp(65),
+   knows_common,
+   vaegir_face_younger_1, vaegir_face_middle_2
+   ],
+  #见习格斗步兵
+  ["llqs_jianxi_gedou_bubing","LLQS Noviciate Melee Footman","LLQS Footmen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_player_faction,
+   [itm_bolts,itm_spiked_club,itm_fighting_pick,itm_boar_spear,itm_hunting_crossbow,itm_tab_shield_heater_a,
+    itm_padded_cloth,itm_red_gambeson,itm_arming_cap,itm_arming_cap,itm_ankle_boots,itm_wrapping_boots],
+   def_attrib|level(11),wp(75),knows_common,swadian_face_young_1, swadian_face_old_2
+   ],
+  #见习骑手
+  ["llqs_jianxi_qishou","LLQS Noviciate Horseman","LLQS Noviciate Horsemen",
+   tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_spear,itm_fighting_pick,itm_sword_medieval_a,itm_voulge,itm_tab_shield_round_b,itm_tab_shield_round_c,
+    itm_leather_jerkin,itm_leather_vest,itm_hide_boots,itm_padded_coif,itm_nasal_helmet,itm_footman_helmet,itm_saddle_horse],
+   def_attrib|level(14),
+   wp(85),
+   knows_common|knows_riding_2|knows_ironflesh_1|knows_shield_3,
+   mercenary_face_1, mercenary_face_2
+   ],
+  #格斗步兵
+  ["llqs_gedou_bubing","LLQS Melee Footman","LLQS Melee Footmen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_spear,itm_fighting_pick,itm_sword_medieval_b_small,itm_sword_medieval_a,itm_tab_shield_heater_b,
+    itm_mail_with_tunic_red,itm_ankle_boots,itm_mail_coif,itm_norman_helmet],
+   str_12 | agi_5 | int_4 | cha_4|level(15),
+   wp_melee(85),knows_common|knows_ironflesh_2|knows_shield_2|knows_athletics_2|knows_power_strike_2,swadian_face_young_1, swadian_face_old_2
+   ],
+  #枪骑兵
+  ["llqs_qiangqibing","LLQS Lancer","LLQS Lancers",
+   tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_battle_axe,itm_sword_khergit_2,itm_lance,itm_tab_shield_kite_cav_a,itm_spear,
+    itm_studded_leather_coat,itm_lamellar_vest,itm_leather_boots,itm_vaegir_lamellar_helmet,itm_vaegir_spiked_helmet,itm_vaegir_fur_helmet,itm_steppe_horse,itm_hunter],
+   def_attrib|level(19),
+   wp(100),knows_riding_3|knows_ironflesh_3|knows_power_strike_3,vaegir_face_young_1, vaegir_face_older_2
+   ],
+  #重装枪骑兵
+  ["llqs_zhongzhuang_qiangqibing","LLQS Heavy Armed Lancer","LLQS Heavy Armed Lancers",
+   tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_heavy_lance,itm_sword_two_handed_b,itm_sword_medieval_d_long,itm_morningstar,itm_morningstar,itm_sword_medieval_d_long,itm_tab_shield_heater_cav_b,
+    itm_coat_of_plates_red,itm_cuir_bouilli,itm_plate_boots,itm_guard_helmet,itm_great_helmet,itm_bascinet,itm_charger,itm_warhorse,itm_gauntlets,itm_mail_mittens],
+   def_attrib|level(25),
+   wp_one_handed (150) | wp_two_handed (130) | wp_polearm (130) | wp_archery (75) | wp_crossbow (75) | wp_throwing (75),knows_common|knows_riding_5|knows_shield_5|knows_ironflesh_5|knows_power_strike_5,swadian_face_middle_1, swadian_face_older_2
+   ],
+  #游骑兵
+  ["llqs_youqibing","LLQS Ranger","LLQS Rangers",
+   tf_mounted|tf_guarantee_all_wo_ranged,
+   0,0,
+   fac_player_faction,
+   [itm_sword_khergit_4,itm_spiked_mace,itm_one_handed_war_axe_b,itm_hafted_blade_a,itm_hafted_blade_b,itm_heavy_lance,itm_lance,
+    itm_khergit_guard_helmet,itm_khergit_cavalry_helmet,itm_khergit_war_helmet,itm_lamellar_vest_khergit,itm_lamellar_armor,itm_khergit_leather_boots,itm_splinted_leather_greaves,itm_leather_gloves,itm_scale_gauntlets,itm_tab_shield_small_round_b,itm_tab_shield_small_round_c,itm_courser,itm_warhorse_steppe,itm_warhorse_steppe,itm_warhorse_steppe],
+   def_attrib|level(22),
+   wp_one_handed (110) | wp_two_handed (110) | wp_polearm (150) | wp_archery (110) | wp_crossbow (110) | wp_throwing (110),knows_riding_7|knows_power_strike_4|knows_power_draw_4|knows_power_throw_2|knows_ironflesh_4|knows_horse_archery_1|knows_shield_2,khergit_face_middle_1, khergit_face_older_2
+   ],
+  #枪骑兵队长
+  ["llqs_qiangqibing_duizhang","LLQS Lancer Captain","LLQS Lancer Captains",
+   tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_heavy_lance,itm_sword_two_handed_b,itm_sword_medieval_d_long,itm_morningstar,itm_morningstar,itm_sword_medieval_d_long,itm_tab_shield_heater_cav_b,
+    itm_coat_of_plates_red,itm_cuir_bouilli,itm_plate_boots,itm_guard_helmet,itm_great_helmet,itm_bascinet,itm_charger,itm_warhorse,itm_gauntlets,itm_mail_mittens],
+   def_attrib|level(28),
+   wp_one_handed (150) | wp_two_handed (130) | wp_polearm (130) | wp_archery (75) | wp_crossbow (75) | wp_throwing (75),knows_common|knows_riding_5|knows_shield_5|knows_ironflesh_5|knows_power_strike_5,swadian_face_middle_1, swadian_face_older_2
+   ],
+  #近身骑兵侍卫
+  ["llqs_jinshen_qibing_shiwei","LLQS Horse Bodyguard","LLQS Horse Bodyguards",
+   tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,
+   0,0,
+   fac_player_faction,
+   [itm_heavy_lance,itm_sword_two_handed_b,itm_sword_medieval_d_long,itm_morningstar,itm_morningstar,itm_sword_medieval_d_long,itm_tab_shield_heater_cav_b,
+    itm_coat_of_plates_red,itm_cuir_bouilli,itm_plate_boots,itm_guard_helmet,itm_great_helmet,itm_bascinet,itm_charger,itm_warhorse,itm_gauntlets,itm_mail_mittens],
+   def_attrib|level(27),
+   wp_one_handed (150) | wp_two_handed (130) | wp_polearm (130) | wp_archery (75) | wp_crossbow (75) | wp_throwing (75),knows_common|knows_riding_5|knows_shield_5|knows_ironflesh_5|knows_power_strike_5,swadian_face_middle_1, swadian_face_older_2
+   ],
+  #飞斧兵
+  ["llqs_feifubing","LLQS Throwaxeman","LLQS Throwaxemen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_player_faction,
+   [itm_sword_viking_1,itm_one_handed_war_axe_b,itm_one_handed_battle_axe_a,itm_tab_shield_round_c,itm_javelin,
+    itm_nordic_footman_helmet,itm_nordic_fighter_helmet,itm_mail_shirt,itm_studded_leather_coat,itm_hunter_boots,itm_leather_boots],
+   def_attrib|level(20),wp(115),knows_ironflesh_4|knows_power_strike_4|knows_power_throw_3|knows_riding_2|knows_athletics_4|knows_shield_3,nord_face_young_1, nord_face_older_2],
+  #资深飞斧兵
+  ["llqs_zishen_feifubing","LLQS Veteran Throwaxeman","LLQS Veteran Throwaxemen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_player_faction,
+   [itm_sword_viking_2,itm_sword_viking_2_small,itm_one_handed_battle_axe_b,itm_spiked_mace,itm_tab_shield_round_d,itm_javelin,itm_throwing_axes,
+    itm_nordic_helmet,itm_nordic_fighter_helmet,itm_mail_hauberk,itm_mail_shirt,itm_splinted_leather_greaves,itm_leather_boots,itm_leather_gloves],
+   def_attrib|level(23),wp(145),knows_ironflesh_5|knows_power_strike_5|knows_power_throw_4|knows_riding_3|knows_athletics_5|knows_shield_4,nord_face_young_1, nord_face_older_2],
+  #长矛兵
+  ["llqs_changmaobing","LLQS Spearman","LLQS Spearmen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_player_faction,
+   [itm_ashwood_pike,itm_glaive,itm_tab_shield_pavise_c,
+    itm_kettle_hat,itm_mail_coif,itm_mail_with_tunic_green,itm_leather_boots,itm_splinted_leather_greaves,itm_leather_gloves],
+   def_attrib|level(19),wp_one_handed (115) | wp_two_handed (115) | wp_polearm (130) | wp_archery (115) | wp_crossbow (115) | wp_throwing (115),knows_common|knows_ironflesh_5|knows_shield_3|knows_power_strike_4|knows_athletics_3,rhodok_face_young_1, rhodok_face_older_2],
+  #资深长矛兵
+  ["llqs_zishen_changmaobing","LLQS Veteran Spearman","LLQS Veteran Spearmen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_player_faction,
+   [itm_ashwood_pike,itm_glaive,itm_tab_shield_pavise_c,
+    itm_kettle_hat,itm_mail_coif,itm_mail_with_tunic_green,itm_leather_boots,itm_splinted_leather_greaves,itm_leather_gloves],
+   def_attrib|level(22),wp_one_handed (115) | wp_two_handed (115) | wp_polearm (130) | wp_archery (115) | wp_crossbow (115) | wp_throwing (115),knows_common|knows_ironflesh_5|knows_shield_3|knows_power_strike_4|knows_athletics_3,rhodok_face_young_1, rhodok_face_older_2],
+  #近身侍卫
+  ["llqs_jinshen_shiwei","LLQS Bodyguard","LLQS Bodyguards",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_player_faction,
+   [itm_sword_viking_3,itm_sword_viking_3_small,itm_great_axe,itm_one_handed_battle_axe_c,itm_tab_shield_round_e,itm_throwing_spears,itm_heavy_throwing_axes,itm_heavy_throwing_axes,
+    itm_nordic_huscarl_helmet,itm_nordic_warlord_helmet,itm_banded_armor,itm_mail_boots,itm_mail_chausses,itm_mail_mittens],
+   def_attrib|level(26),wp(170),knows_ironflesh_7|knows_power_strike_7|knows_power_throw_5|knows_riding_2|knows_athletics_7|knows_shield_6,nord_face_middle_1, nord_face_older_2],
+  #狂战士
+  ["llqs_kuangzhanshi","LLQS Berserker","LLQS Berserkers",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_player_faction,
+   [itm_sword_viking_3,itm_sword_viking_3_small,itm_great_axe,itm_one_handed_battle_axe_c,itm_tab_shield_round_e,itm_throwing_spears,itm_heavy_throwing_axes,itm_heavy_throwing_axes,
+    itm_nordic_huscarl_helmet,itm_nordic_warlord_helmet,itm_banded_armor,itm_mail_boots,itm_mail_chausses,itm_mail_mittens],
+   def_attrib|level(27),wp(170),knows_ironflesh_7|knows_power_strike_7|knows_power_throw_5|knows_riding_2|knows_athletics_7|knows_shield_6,nord_face_middle_1, nord_face_older_2],
+  #见习射手
+  ["llqs_jainxi_sheshou","LLQS Noviciate Shooter","LLQS Noviciate Shooters",
+   tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_player_faction,
+   [itm_arrows,itm_spiked_mace,itm_axe,itm_sword_khergit_1,itm_short_bow,itm_short_bow,itm_hunting_bow,itm_javelin,itm_javelin,itm_steppe_cap,itm_nomad_cap,itm_leather_vest,itm_leather_vest,itm_nomad_armor,itm_nomad_boots],
+   str_10 | agi_5 | int_4 | cha_4|level(16),wp(60),knows_ironflesh_1|knows_power_draw_1|knows_power_throw_1,vaegir_face_young_1, vaegir_face_old_2],
+ #骑射手
+ ["llqs_qisheshou","LLQS Horse Archer","LLQS Horse Archers",
+  tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_horse,0,0,fac_player_faction,
+   [itm_arrows,itm_sword_khergit_2,itm_winged_mace,itm_spear,itm_khergit_bow,itm_tab_shield_small_round_a,itm_tab_shield_small_round_a,itm_tab_shield_small_round_b,itm_bodkin_arrows,itm_arrows,itm_javelin,
+    itm_leather_steppe_cap_b,itm_nomad_cap_b,itm_tribal_warrior_outfit,itm_nomad_robe,itm_khergit_leather_boots,itm_tab_shield_small_round_a,itm_tab_shield_small_round_b,itm_steppe_horse],
+   def_attrib|level(18),wp_one_handed (80) | wp_two_handed (80) | wp_polearm (80) | wp_archery (110) | wp_crossbow (80) | wp_throwing (110),knows_riding_5|knows_power_draw_3|knows_ironflesh_1|knows_horse_archery_4|knows_power_throw_3,khergit_face_young_1, khergit_face_older_2],
+  #资深骑射手
+  ["llqs_zishen_qisheshou","LLQS Veteran Horse Archer","LLQS Veteran Horse Archers",
+   tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,
+   0,0,
+   fac_player_faction,
+   [itm_hatchet,itm_tab_shield_round_a,itm_tutorial_short_bow,itm_arrows,itm_rawhide_coat,itm_nomad_boots,itm_hide_boots],
+   def_attrib|level(21),
+   wp(130),
+   knows_athletics_3|knows_shield_2|knows_ironflesh_3,
+   vaegir_face_middle_1, vaegir_face_older_2
+   ],
+  #精英骑射手
+  ["llqs_jingying_qisheshou","LLQS Elite Horse Archer","LLQS Elite Horse Archers",
+   tf_mounted|tf_guarantee_all,0,0,fac_player_faction,
+   [itm_sword_khergit_3,itm_winged_mace,itm_spear,itm_khergit_bow,itm_khergit_bow,itm_khergit_bow
+   ,itm_nomad_bow,itm_arrows,itm_khergit_arrows,itm_khergit_arrows,itm_khergit_arrows,itm_javelin,itm_tab_shield_small_round_b,itm_tab_shield_small_round_c,
+    itm_khergit_cavalry_helmet,itm_khergit_cavalry_helmet,itm_leather_warrior_cap,itm_lamellar_vest_khergit,itm_tribal_warrior_outfit,itm_khergit_leather_boots,itm_leather_gloves,itm_steppe_horse,itm_courser],
+   def_attrib|level(25),wp_one_handed (90) | wp_two_handed (90) | wp_polearm (90) | wp_archery (130) | wp_crossbow (90) | wp_throwing (130),knows_riding_7|knows_power_draw_5|knows_ironflesh_3|knows_horse_archery_7|knows_power_throw_4|knows_shield_1,khergit_face_middle_1, khergit_face_older_2],
+  #弩手
+  ["llqs_nushou","LLQS Crossbowman","LLQS Crossbowmen",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_player_faction,
+   [itm_sword_medieval_a,itm_sword_medieval_b_small,itm_fighting_pick,itm_club_with_spike_head,itm_tab_shield_pavise_b,itm_tab_shield_pavise_c,itm_heavy_crossbow,itm_bolts,
+    itm_leather_cap,itm_felt_hat_b,itm_aketon_green,itm_leather_boots],
+   def_attrib|level(19),wp_one_handed (100) | wp_two_handed (100) | wp_polearm (100) | wp_archery (100) | wp_crossbow (120) | wp_throwing (100),knows_common|knows_ironflesh_2|knows_shield_3|knows_power_strike_3|knows_athletics_4,rhodok_face_middle_1, rhodok_face_older_2],
+  #弓手
+  ["llqs_gongshou","LLQS Archer","LLQS Archers",
+   tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_player_faction,
+   [itm_arrows,itm_axe,itm_sword_khergit_1,itm_nomad_bow,itm_nomad_bow,itm_short_bow,
+    itm_leather_jerkin,itm_leather_vest,itm_nomad_boots,itm_vaegir_spiked_helmet,itm_vaegir_fur_helmet,itm_vaegir_fur_cap,itm_nomad_cap],
+   str_12 | agi_5 | int_4 | cha_4|level(20),wp_one_handed (70) | wp_two_handed (70) | wp_polearm (70) | wp_archery (110) | wp_crossbow (70) | wp_throwing (70),knows_ironflesh_1|knows_power_draw_3|knows_athletics_2|knows_power_throw_1,vaegir_face_young_1, vaegir_face_older_2],
+  #狙击手
+  ["llqs_jujishou","LLQS Snipper","LLQS Snippers",
+   tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_player_faction,
+   [itm_sword_medieval_b,itm_military_pick,itm_military_hammer,itm_tab_shield_pavise_c,itm_sniper_crossbow,itm_steel_bolts,
+    itm_kettle_hat,itm_mail_coif,itm_mail_with_tunic_green,itm_leather_boots,itm_splinted_leather_greaves],
+   str_14 | agi_5 | int_4 | cha_4|level(23),wp_one_handed (110) | wp_two_handed (110) | wp_polearm (110) | wp_archery (100) | wp_crossbow (140) | wp_throwing (100),knows_common|knows_ironflesh_3|knows_shield_4|knows_power_strike_4|knows_athletics_6,rhodok_face_middle_1, rhodok_face_older_2],
+  #神箭手
+  ["llqs_shenjianshou","LLQS Marksman","LLQS Marksmen",
+   tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_player_faction,
+   [itm_barbed_arrows,itm_axe,itm_voulge,itm_sword_khergit_2,itm_strong_bow,itm_war_bow,itm_strong_bow,
+    itm_leather_vest,itm_studded_leather_coat,itm_leather_boots,itm_vaegir_lamellar_helmet,itm_vaegir_spiked_helmet,itm_vaegir_fur_helmet],
+   str_14 | agi_5 | int_4 | cha_4|level(24),wp_one_handed (80) | wp_two_handed (80) | wp_polearm (80) | wp_archery (140) | wp_crossbow (80) | wp_throwing (80),knows_ironflesh_2|knows_power_draw_5|knows_athletics_3|knows_power_throw_1,vaegir_face_young_1, vaegir_face_older_2],
+          ##
 ]
 
 
 #Troop upgrade declarations
 
-upgrade(troops,"farmer", "watchman")
+upgrade2(troops,"llqs_newbie", "llqs_jianxi_gedou_bubing","llqs_jianxi_qishou")
+upgrade2(troops,"llqs_jianxi_gedou_bubing", "llqs_gedou_bubing","llqs_jainxi_sheshou")
+upgrade2(troops,"llqs_gedou_bubing", "llqs_feifubing","llqs_changmaobing")
+upgrade2(troops,"llqs_jainxi_sheshou", "llqs_nushou","llqs_gongshou")
+upgrade(troops,"llqs_feifubing", "llqs_zishen_feifubing")
+upgrade(troops,"llqs_changmaobing", "llqs_zishen_changmaobing")
+upgrade(troops,"llqs_zishen_feifubing", "llqs_kuangzhanshi")
+upgrade(troops,"llqs_zishen_changmaobing", "llqs_jinshen_shiwei")
+upgrade(troops,"llqs_nushou", "llqs_jujishou")
+upgrade(troops,"llqs_gongshou", "llqs_shenjianshou")
+upgrade2(troops,"llqs_jianxi_qishou", "llqs_qiangqibing","llqs_qisheshou")
+upgrade2(troops,"llqs_qiangqibing", "llqs_zhongzhuang_qiangqibing","llqs_youqibing")
+upgrade(troops,"llqs_qisheshou", "llqs_zishen_qisheshou")
+upgrade2(troops,"llqs_zhongzhuang_qiangqibing", "llqs_qiangqibing_duizhang","llqs_jinshen_qibing_shiwei")
+upgrade(troops,"llqs_zishen_qisheshou", "llqs_jingying_qisheshou")
+
+
+upgrade2(troops,"farmer", "watchman","llqs_newbie")
 upgrade(troops,"townsman","watchman")
 upgrade2(troops,"watchman","caravan_guard","mercenary_crossbowman")
 upgrade2(troops,"caravan_guard","mercenary_swordsman","mercenary_horseman")
 upgrade(troops,"mercenary_swordsman","hired_blade")
 upgrade(troops,"mercenary_horseman","mercenary_cavalry")
 
-upgrade(troops,"swadian_recruit","swadian_militia")
+upgrade2(troops,"swadian_recruit","swadian_militia","llqs_newbie")
 
 upgrade2(troops,"swadian_militia","swadian_footman","swadian_skirmisher")
 upgrade2(troops,"swadian_footman","swadian_man_at_arms","swadian_infantry")
@@ -2169,7 +2369,7 @@ upgrade(troops,"swadian_crossbowman","swadian_sharpshooter")
 
 upgrade(troops,"swadian_man_at_arms","swadian_knight")
 
-upgrade(troops,"vaegir_recruit","vaegir_footman")
+upgrade2(troops,"vaegir_recruit","vaegir_footman","llqs_newbie")
 upgrade2(troops,"vaegir_footman","vaegir_veteran","vaegir_skirmisher")
 
 upgrade(troops,"vaegir_skirmisher","vaegir_archer")
@@ -2181,7 +2381,7 @@ upgrade2(troops,"vaegir_veteran","vaegir_horseman","vaegir_infantry")
 upgrade(troops,"vaegir_infantry","vaegir_guard")
 upgrade(troops,"vaegir_horseman","vaegir_knight")
 
-upgrade(troops,"khergit_tribesman","khergit_skirmisher")
+upgrade2(troops,"khergit_tribesman","khergit_skirmisher","llqs_newbie")
 upgrade(troops,"khergit_skirmisher","khergit_horseman")
 upgrade2(troops,"khergit_horseman","khergit_lancer","khergit_horse_archer")
 upgrade(troops,"khergit_horse_archer","khergit_veteran_horse_archer")
@@ -2204,7 +2404,7 @@ upgrade(troops,"rhodok_trained_crossbowman","rhodok_veteran_crossbowman") #new 1
 upgrade(troops,"rhodok_veteran_crossbowman","rhodok_sharpshooter")
 
 
-upgrade(troops,"sarranid_recruit","sarranid_footman")
+upgrade2(troops,"sarranid_recruit","sarranid_footman","llqs_newbie")
 
 upgrade2(troops,"sarranid_footman","sarranid_veteran_footman","sarranid_skirmisher")
 upgrade2(troops,"sarranid_veteran_footman","sarranid_horseman","sarranid_infantry")

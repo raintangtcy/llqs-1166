@@ -408,9 +408,9 @@ trp_npc15|亚 提 曼　
 trp_npc15_pl|亚 提 曼　
 trp_npc16|克 雷 斯　
 trp_npc16_pl|克 雷 斯　
-trp_npc17|奇 葩 铁 匠 史 密 斯 
-trp_npc18|多 洛 维 
-trp_npc19|游 侠  . 穆 小 琳 
+trp_npc17|奇 葩 铁 匠 史 密 斯
+trp_npc18|多 洛 维
+trp_npc19|游 侠  . 穆 小 琳
 trp_kingdom_1_lord|哈 劳 斯 国 王　
 trp_kingdom_1_lord_pl|哈 劳 斯　
 trp_kingdom_2_lord|亚 罗 格 尔 克 国 王　
@@ -1334,3 +1334,29 @@ trp_bandit_leaders_end_pl|bandit leaders end
 trp_relative_of_merchant|商 人 的 兄 弟　
 trp_relative_of_merchants_end|relative of merchants end
 trp_relative_of_merchants_end_pl|relative of merchants end
+trp_llqs_newbie|浪 骑 进 阶 新 兵　
+trp_llqs_jianxi_gedou_bubing|浪 骑 见 习 格 斗 步 兵　
+trp_llqs_jianxi_qishou|浪 骑 见 习 骑 手　
+trp_llqs_gedou_bubing|浪 骑 格 斗 步 兵　
+trp_llqs_qiangqibing|浪 骑 枪 骑 兵　
+trp_llqs_zhongzhuang_qiangqibing|浪 骑 重 装 枪 骑 兵　
+trp_llqs_youqibing|浪 骑 游 骑 兵　
+trp_llqs_qiangqibing_duizhang|浪 骑 枪 骑 兵 队 长　
+trp_llqs_jinshen_qibing_shiwei|浪 骑 近 身 骑 兵 侍 卫　
+trp_llqs_touzhibing|浪 骑 投 掷 兵　
+trp_llqs_feifubing|浪 骑 飞 斧 兵　
+trp_llqs_zishen_feifubing|浪 骑 资 深 飞 斧 兵　
+trp_llqs_changmaobing|浪 骑 长 矛 兵　
+trp_llqs_zishen_changmaobing|浪 骑 资 深 长 矛 兵　
+trp_llqs_kuangzhanshi|浪 骑 狂 战 士　
+trp_llqs_jinshen_shiwei|浪 骑 近 身 侍 卫　
+trp_llqs_jainxi_sheshou|浪 骑 见 习 射 手　
+trp_llqs_qisheshou|浪 骑 骑 射 手　
+trp_llqs_jianxi_qisheshou|浪 骑 见 习 骑 射 手　
+trp_llqs_zishen_qisheshou|浪 骑 资 深 骑 射 手　
+trp_llqs_jingying_qisheshou|浪 骑 精 英 骑 射 手　
+trp_llqs_jinjie_sheshou|浪 骑 进 阶 射 手　
+trp_llqs_nushou|浪 骑 弩 手　
+trp_llqs_gongshou|浪 骑 弓 手　
+trp_llqs_jujishou|浪 骑 狙 击 手　
+trp_llqs_shenjianshou|浪 骑 神 箭 手　

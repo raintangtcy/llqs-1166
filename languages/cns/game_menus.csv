@@ -515,6 +515,8 @@ mno_camp_mod_menu|MOD 菜 单
 mno_town_0|我 住 在 帕 拉 汶 。
 mno_mod_add_gold|增 加 1 0 0 0 0 0 第 纳 尔
 mno_mod_add_troop|增 加 一 队 1 0 人 的 斯 瓦 迪 亚 骑 士
-mno_mod_refresh_store|刷 新 卡 拉 迪 亚 城 镇 商 店
-mno_mod_refresh_searaider_nearby|在 附 近 出 现 一 支 海 寇 部 队
-mno_mod_refresh_looter_nearby|在 附 近 出 现 一 支 劫 匪 部 队
+mno_mod_refresh_store|刷 新 卡 拉 迪 亚 城 镇 商 店。
+mno_mod_refresh_searaider_nearby|在 附 近 出 现 一 支 海 寇 部 队。
+mno_mod_refresh_looter_nearby|在 附 近 出 现 一 支 劫 匪 部 队。
+mno_mod_delegate_selling|委 托 出 售 ( 1 0 % 的 金 钱 损 失, 除 书 , 货 物 , 动 物 以 外 , 且 价 值 在 1 0 0 以 下  )。
+mno_camp_action_1|查 看 地 形 。

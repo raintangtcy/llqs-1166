@@ -3218,7 +3218,7 @@ game_menus = [
        ]
       ),
       ("camp_action_1",[],"Walk around.",
-#       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
+#     ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
        [(set_jump_mission,"mt_ai_training"),
         (call_script, "script_setup_random_scene"),
         (change_screen_mission),
@@ -14587,9 +14587,6 @@ game_menus = [
         (assign, "$town_entered", 1),
 
         (try_begin),
-          (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-          (change_screen_map, 0),
-        (else_try),
           (eq, "$current_town", "p_town_1"),
           (assign, ":town_merchant", "trp_nord_merchant"),
           (assign, ":town_room_scene", "scn_town_1_room"),
@@ -14619,7 +14616,6 @@ game_menus = [
         (reset_visitors),
         (set_visitor, 0, "trp_player"),
         (set_visitor, 9, ":town_merchant"),
-
         (assign, "$talk_context", tc_merchants_house),
 
         (assign, "$dialog_with_merchant_ended", 0),

@@ -575,5 +575,8 @@ script_auto_sell_items = 573
 script_cf_sommon_troop = 574
 script_get_item_value_with_imod = 575
 script_init_item_modifier_value_multiplier = 576
+script_cf_check_llqs_follower_condition_for_village = 577
+script_village_recruit_llqs_man_recruit = 578
+script_update_llqs_follower_troops_in_village = 579
 
 

@@ -252,14 +252,14 @@ slot_faction_sum_advice_about_factions_begin 			= 150
 #revolts -- notes for self
 #type 1 -- minor revolt, aimed at negotiating change without changing the ruler
 #type 2 -- alternate ruler revolt (ie, pretender, chinese dynastic revolt -- keep the same polity but switch the ruler)
-	#subtype -- pretender (keeps the same dynasty)
-	#"mandate of heaven" -- same basic rules, but a different dynasty
-	#alternate/religious
-	#alternate/political
+  #subtype -- pretender (keeps the same dynasty)
+  #"mandate of heaven" -- same basic rules, but a different dynasty
+  #alternate/religious
+  #alternate/political
 #type 3 -- separatist revolt
-	# reGonalist/dynastic (based around an alternate ruling house
-	# regionalist/republican
-	# messianic (ie, Canudos)
+  # reGonalist/dynastic (based around an alternate ruling house
+  # regionalist/republican
+  # messianic (ie, Canudos)
 
 ########################################################
 ##  PARTY SLOTS            #############################队伍slot
@@ -1214,7 +1214,7 @@ slot_troop_will_join_prison_break      = 161
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
 slot_troop_relations_begin				= 0 #this creates an array for relations between troops
-											#Right now, lords start at 165 and run to around 290, including pretenders
+                      #Right now, lords start at 165 and run to around 290, including pretenders
 
 
 
@@ -2172,3 +2172,5 @@ slot_item_type_not_for_sell       = 71
 slot_item_modifier_multiplier     = 72
 slot_item_best_modifier           = 73
 slot_item_special_item            = 77
+
+slot_center_llqs_follower_troop_amount= 1

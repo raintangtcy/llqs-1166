@@ -2359,14 +2359,14 @@ upgrade2(troops,"llqs_zhongzhuang_qiangqibing", "llqs_qiangqibing_duizhang","llq
 upgrade(troops,"llqs_zishen_qisheshou", "llqs_jingying_qisheshou")
 
 
-upgrade2(troops,"farmer", "watchman","llqs_newbie")
+# upgrade2(troops,"farmer", "watchman","llqs_newbie")
 upgrade(troops,"townsman","watchman")
 upgrade2(troops,"watchman","caravan_guard","mercenary_crossbowman")
 upgrade2(troops,"caravan_guard","mercenary_swordsman","mercenary_horseman")
 upgrade(troops,"mercenary_swordsman","hired_blade")
 upgrade(troops,"mercenary_horseman","mercenary_cavalry")
 
-upgrade2(troops,"swadian_recruit","swadian_militia","llqs_newbie")
+# upgrade2(troops,"swadian_recruit","swadian_militia","llqs_newbie")
 
 upgrade2(troops,"swadian_militia","swadian_footman","swadian_skirmisher")
 upgrade2(troops,"swadian_footman","swadian_man_at_arms","swadian_infantry")
@@ -2377,7 +2377,7 @@ upgrade(troops,"swadian_crossbowman","swadian_sharpshooter")
 
 upgrade(troops,"swadian_man_at_arms","swadian_knight")
 
-upgrade2(troops,"vaegir_recruit","vaegir_footman","llqs_newbie")
+# upgrade2(troops,"vaegir_recruit","vaegir_footman","llqs_newbie")
 upgrade2(troops,"vaegir_footman","vaegir_veteran","vaegir_skirmisher")
 
 upgrade(troops,"vaegir_skirmisher","vaegir_archer")
@@ -2389,7 +2389,7 @@ upgrade2(troops,"vaegir_veteran","vaegir_horseman","vaegir_infantry")
 upgrade(troops,"vaegir_infantry","vaegir_guard")
 upgrade(troops,"vaegir_horseman","vaegir_knight")
 
-upgrade2(troops,"khergit_tribesman","khergit_skirmisher","llqs_newbie")
+# upgrade2(troops,"khergit_tribesman","khergit_skirmisher","llqs_newbie")
 upgrade(troops,"khergit_skirmisher","khergit_horseman")
 upgrade2(troops,"khergit_horseman","khergit_lancer","khergit_horse_archer")
 upgrade(troops,"khergit_horse_archer","khergit_veteran_horse_archer")
@@ -2412,7 +2412,7 @@ upgrade(troops,"rhodok_trained_crossbowman","rhodok_veteran_crossbowman") #new 1
 upgrade(troops,"rhodok_veteran_crossbowman","rhodok_sharpshooter")
 
 
-upgrade2(troops,"sarranid_recruit","sarranid_footman","llqs_newbie")
+# upgrade2(troops,"sarranid_recruit","sarranid_footman","llqs_newbie")
 
 upgrade2(troops,"sarranid_footman","sarranid_veteran_footman","sarranid_skirmisher")
 upgrade2(troops,"sarranid_veteran_footman","sarranid_horseman","sarranid_infantry")

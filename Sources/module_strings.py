@@ -4103,4 +4103,5 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("spawn_troop_nearby_with_s1_partyname", "Rogue report: A {s1} troop with {reg1} men detected nearby."),
   ("all_stores_goods_refreshed", "Goods of all the stores in Caradia are updated."),
   ("add_10_swadia_knight", "10 Swadia knight joined your party."),
+  ("llqs_folowers_appear", "You renown has reached 300, it is said some of your followers want to join you. You can find them in villages."),
 ]

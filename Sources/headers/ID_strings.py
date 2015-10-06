@@ -3210,5 +3210,6 @@ str_spawn_troop_nearby_with_s1_partyname = 3208
 str_all_stores_goods_refreshed = 3209
 str_add_10_swadia_knight = 3210
 str_llqs_folowers_appear = 3211
+str_daily_tip_1 = 3212
 
 

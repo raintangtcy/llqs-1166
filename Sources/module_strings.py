@@ -4104,4 +4104,5 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("all_stores_goods_refreshed", "Goods of all the stores in Caradia are updated."),
   ("add_10_swadia_knight", "10 Swadia knight joined your party."),
   ("llqs_folowers_appear", "You renown has reached 300, it is said some of your followers want to join you. You can find them in villages."),
+  ("daily_tip_1", "-----Daily Tips----- LLQS followers will join you, after your renown reachs 300. Try to hire them from villages."),
 ]

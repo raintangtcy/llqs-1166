@@ -34,6 +34,17 @@ simple_triggers = [
     ]
 ),
 
+#每日提示                   
+(
+    24,
+    [
+        (store_random_in_range, ":index", 1, 2),
+            (eq, ":index", 1),
+            (display_message, "str_daily_tip_1"),
+        (try_end),
+    ]
+),
+
 # This trigger is deprecated. Use "script_game_event_party_encounter" in module_scripts.py instead
   (ti_on_party_encounter,
    [

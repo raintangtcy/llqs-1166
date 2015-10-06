@@ -127,12 +127,15 @@ game_menus = [
             (assign, "$g_starting_town", "$current_town"),
             (call_script, "script_player_arrived"),
             (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+            (assign, "$g_quick_test", 1),
             (change_screen_return),
 
          ]
         ),
      ("continue",[],"Continue...",
-       [(jump_to_menu, "mnu_start_game_1"),
+       [
+        (assign,"$g_quick_test", 0),
+        (jump_to_menu, "mnu_start_game_1"),
         ]
        ),
       ("go_back",[],"Go back",
@@ -151,7 +154,7 @@ game_menus = [
     "none",
     [],
     [
-      ("town_0",[(eq, "$current_startup_quest_phase", 0),],"I'm living in Praven.",
+      ("town_0",[(eq, "$g_quick_test", 1),],"I'm living in Praven.",
        [
             #assign start town as Praven
             (assign, "$current_town", "p_town_6"),
@@ -3212,7 +3215,9 @@ game_menus = [
     ],
     [
      #add llqs's menu in Camp menu
-      ("camp_mod_menu",[],"Mod Menu",
+      ("camp_mod_menu",[
+                        (eq, "$g_quick_test", 1),
+                        ],"Mod Menu",
        [
         (jump_to_menu, "mnu_mod_menu"),
        ]

@@ -1234,7 +1234,7 @@ items = [
 ["warhorse_steppe","Steppe Charger", [("warhorse_steppe",0)], itp_merchandise|itp_type_horse, 0, 1400,abundance(45)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(40)|horse_maneuver(50)|horse_charge(28)|horse_scale(112),imodbits_horse_basic|imodbit_champion, [], [fac_kingdom_3,fac_kingdom_2]],
 
 #special item in llqs mod start
-["sword_of_knight", "Sword of Knight", [("b_bastard_sword",0),("scab_bastardsw_b", ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise| itp_two_handed|itp_primary, itc_greatsword|itcf_carry_sword_back|itcf_show_holster_when_drawn,
+["sword_of_knight", "Sword of Knight", [("b_bastard_sword",0),("scab_bastardsw_b", ixmesh_carry)], itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_greatsword|itcf_carry_sword_back|itcf_show_holster_when_drawn,
  3000 , weight(3.5)|difficulty(12)|spd_rtng(96) | weapon_length(127)|swing_damage(48 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high,
  [(ti_on_agent_hit,[
 
@@ -1265,9 +1265,9 @@ items = [
 ])]
 ],
 #诺德任务装备
-["forest_hunter", "Forest Hunter", [("hunting_bow",0),("hunting_bow_carry",ixmesh_carry)],itp_type_bow |itp_merchandise|itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back,
+["forest_hunter", "Forest Hunter", [("hunting_bow",0),("hunting_bow_carry",ixmesh_carry)],itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back,
 3000 , weight(1.8)|difficulty(2)|spd_rtng(99) | shoot_speed(95) | thrust_damage(26 ,  pierce),imodbits_bow ],
-["sword_of_guard", "Sword of Guard", [("sword_medieval_b_small",0),("sword_medieval_b_small_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+["sword_of_guard", "Sword of Guard", [("sword_medieval_b_small",0),("sword_medieval_b_small_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  3000 , weight(2.0)|difficulty(0)|spd_rtng(100) | weapon_length(99)|swing_damage(33, cut) | thrust_damage(26, pierce),imodbits_sword_high ],
 ["nordic_elite_battle_axe",         "Nordic Elite Battle Axe", [("battle_ax",0)], itp_type_two_handed_wpn|itp_crush_through|itp_two_handed|itp_primary|itp_bonus_against_shield|itp_unbalanced|itp_unique|itp_cant_use_on_horseback|itp_wooden_parry, itc_nodachi|itcf_carry_axe_back,
 1500 , weight(5.8)|difficulty(14)|spd_rtng(90) | weapon_length(130)|swing_damage(58 , cut) | thrust_damage(0 ,  pierce), imodbits_axe ],
@@ -1279,8 +1279,8 @@ items = [
 600 , weight(3.5)|difficulty(6)|spd_rtng(95) | weapon_length(100)|swing_damage(36 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
 #斧弩与斧弩专用矢
-["bolts_acb","Bolts for Axe Cross Bow", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 10,weight(2.25)|abundance(255)|weapon_length(63)|thrust_damage(5,pierce)|max_ammo(500),imodbits_none,
+["bolts_acb","Bolts for Axe Cross Bow", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 10,weight(2.25)|weapon_length(63)|thrust_damage(5,pierce)|max_ammo(500),imodbits_none,
  [
   (ti_on_missile_hit,
    [
@@ -1320,18 +1320,18 @@ items = [
    ]
   ),
  ]],
-["axe_crossbow",         "Axe_Cross_Bow",         [("lightfunu",0)], itp_type_crossbow|itp_merchandise|itp_primary|itp_next_item_as_melee|itp_two_handed, itcf_shoot_crossbow|itcf_carry_crossbow_back,
-10 , abundance(255)|weight(3)|difficulty(14)|spd_rtng(90) | shoot_speed(90) | thrust_damage(70,pierce)|max_ammo(30)|accuracy(999),imodbits_none ],
+["axe_crossbow",         "Axe_Cross_Bow",         [("lightfunu",0)], itp_type_crossbow|itp_primary|itp_next_item_as_melee|itp_two_handed, itcf_shoot_crossbow|itcf_carry_crossbow_back,
+10 , weight(3)|difficulty(14)|spd_rtng(90) | shoot_speed(90) | thrust_damage(70,pierce)|max_ammo(30)|accuracy(999),imodbits_none ],
 ["axe_crossbow_melee",         "Axe_Cross_Bow", [("lightfunu",0)], itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_wooden_parry, itc_nodachi|itcf_carry_crossbow_back,
-10 , abundance(255)|weight(3)|difficulty(14)|spd_rtng(90) | weapon_length(96)|swing_damage(42 , cut) | thrust_damage(0 ,  pierce),imodbits_none ],
+10 , weight(3)|difficulty(14)|spd_rtng(90) | weapon_length(96)|swing_damage(42 , cut) | thrust_damage(0 ,  pierce),imodbits_none ],
 
 #金纹汉剑
-["golden_han_sword", "Golden_Han_Sword", [("JinHanJian",0),(("JinHanJian_q", ixmesh_carry))], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
- 10 , weight(2.3)|abundance(255)|difficulty(9)|spd_rtng(90) | weapon_length(110)|swing_damage(35, cut) | thrust_damage(33, pierce),imodbits_none ],
+["golden_han_sword", "Golden_Han_Sword", [("JinHanJian",0),(("JinHanJian_q", ixmesh_carry))], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+ 10 , weight(2.3)|difficulty(9)|spd_rtng(90) | weapon_length(110)|swing_damage(35, cut) | thrust_damage(33, pierce),imodbits_none ],
 
 #戟弓，默认为弓，第二模式为戟
-["jigong", "Halberd_Bow", [("jigong",0)],itp_merchandise|itp_type_bow |itp_primary|itp_next_item_as_melee|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back,
-3000 , weight(5.5)|abundance(255)|difficulty(0)|spd_rtng(80) | shoot_speed(100) | thrust_damage(27 ,  pierce)|max_ammo(1)|accuracy(99),imodbits_none,
+["jigong", "Halberd_Bow", [("jigong",0)],itp_type_bow |itp_primary|itp_next_item_as_melee|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back,
+3000 , weight(5.5)|difficulty(0)|spd_rtng(80) | shoot_speed(100) | thrust_damage(27 ,  pierce)|max_ammo(1)|accuracy(99),imodbits_none,
 []
  ],
 ["jigong_melee",         "Halberd_Bow", [("jigong",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_two_handed|itp_primary|itp_penalty_with_shield|itp_bonus_against_shield|itp_unbalanced, itc_staff|itcf_carry_bow_back,
@@ -1340,17 +1340,17 @@ items = [
 #轻箭，数量为60
 ["light_arrows","Light_Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_merchandise|itp_type_arrows, itcf_carry_quiver_back, 10,weight(3)|abundance(255)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(60),imodbits_none],
 #康熙大砍刀
-["KanXiDaKanDao", "Big_Cutter", [("KanXiDaKanDao",0)], itp_merchandise|itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_nodachi|itcf_carry_sword_back,
- 10 , weight(2.75)|abundance(255)|difficulty(11)|spd_rtng(95) | weapon_length(135)|swing_damage(55 , cut) | thrust_damage(0 , pierce),imodbits_none ],
+["KanXiDaKanDao", "Big_Cutter", [("KanXiDaKanDao",0)], itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_nodachi|itcf_carry_sword_back,
+ 10 , weight(2.75)|difficulty(11)|spd_rtng(95) | weapon_length(135)|swing_damage(55 , cut) | thrust_damage(0 , pierce),imodbits_none ],
 
 #nothing 屏蔽装备
-["no_leg", "Plate_Boots", [("r_noleg",0)], itp_merchandise| itp_type_foot_armor | itp_attach_armature,0,
- 1 , weight(0.5)|abundance(255)|head_armor(0)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_none ],
-["no_hand","Plate_Gloves", [("r_nohand",0)], itp_merchandise|itp_type_hand_armor,0, 1, weight(0.5)|abundance(255)|body_armor(0)|difficulty(0),imodbits_none],
-["no_head", "Plate_Helmet", [("r_nohead",0)], itp_merchandise| itp_type_head_armor   ,0, 1 , weight(0.5)|abundance(255)|head_armor(0)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_none ],
+["no_leg", "Plate_Boots", [("r_noleg",0)],  itp_type_foot_armor | itp_attach_armature,0,
+ 1 , weight(0.5)|head_armor(0)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_none ],
+["no_hand","Plate_Gloves", [("r_nohand",0)], itp_type_hand_armor,0, 1, weight(0.5)|body_armor(0)|difficulty(0),imodbits_none],
+["no_head", "Plate_Helmet", [("r_nohead",0)], itp_type_head_armor   ,0, 1 , weight(0.5)|head_armor(0)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_none ],
 #连珠枪
 # ["flintlock_pistol_con", "Flintlock Pistol222", [("flintlock_pistol",0)], itp_type_musket |itp_merchandise|itp_primary ,itcf_shoot_musket|itcf_reload_musket, 230 , weight(1.5)|difficulty(0)|spd_rtng(99) | shoot_speed(20) | thrust_damage(45 ,pierce)|max_ammo(1)|accuracy(65),imodbits_none,
-["flintlock_pistol_con", "Flintlock Pistol222", [("flintlock_pistol",0)], itp_type_pistol |itp_merchandise|itp_primary ,itcf_shoot_pistol|itcf_reload_pistol, 230 , weight(1.5)|difficulty(0)|spd_rtng(99) | shoot_speed(20) | thrust_damage(45 ,pierce)|max_ammo(1)|accuracy(65),imodbits_none,
+["flintlock_pistol_con", "Flintlock Pistol222", [("flintlock_pistol",0)], itp_merchandise|itp_type_pistol |itp_primary ,itcf_shoot_pistol|itcf_reload_pistol, 230 , weight(1.5)|abundance(255)|difficulty(0)|spd_rtng(99) | shoot_speed(20) | thrust_damage(45 ,pierce)|max_ammo(1)|accuracy(65),imodbits_none,
  [
   #触发条件，武器攻击时
   (ti_on_weapon_attack,
@@ -1476,7 +1476,7 @@ items = [
   ]],
 
 ["cartridges222","Cartridges222", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0,
- 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(220),imodbits_none],
+ 41,weight(2.25)|abundance(255)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(220),imodbits_none],
 
 
 #special item in llqs mod end

@@ -620,4 +620,5 @@ itm_no_hand = 618
 itm_no_head = 619
 itm_flintlock_pistol_con = 620
 itm_cartridges222 = 621
-itm_items_end = 622
+itm_lqq = 622
+itm_items_end = 623

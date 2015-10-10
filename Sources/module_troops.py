@@ -958,22 +958,22 @@ troops = [
    str_7|agi_11|int_8|cha_7|level(2),wp(80),knows_tracker_npc|
    knows_power_throw_3|knows_athletics_2|knows_power_strike_1,
    0x00000000000c100739ce9c805d2f381300000000001cc7ad0000000000000000],
-  #奇葩铁匠Smith
-  ["npc17","Smith","Smith", tf_hero|tf_unmoveable_in_party_window, scn_town_4_tavern|entry(1), reserved, fac_commoners,[itm_leather_armor,itm_hide_boots,itm_club],
+#奇葩铁匠Smith
+  ["npc17","Smith","Smith", tf_hero, scn_town_4_tavern|entry(1), reserved, fac_commoners,[itm_leather_armor,itm_hide_boots,itm_club],
    str_7|agi_7|int_11|cha_6|level(1),wp(40),knows_merchant_npc|
    knows_trade_2|knows_weapon_master_1|knows_ironflesh_1|knows_wound_treatment_1|knows_athletics_2|knows_first_aid_1|knows_leadership_1,
    0x00000007bf0052064deeffffffffffff00000000001efff90000000000000000],
+# ["npc17","Smith","Smith",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_leather_vest,itm_hide_boots],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   #萨哥斯叛逃军需官克洛维
   ["npc18","Clovy","Clovy", tf_hero|tf_unmoveable_in_party_window, scn_town_1_tavern|entry(6), reserved, fac_commoners,[itm_great_axe,itm_one_handed_battle_axe_c,itm_tab_shield_round_e,itm_heavy_throwing_axes,
     itm_nordic_warlord_helmet,itm_banded_armor,itm_mail_boots,itm_mail_chausses,itm_mail_mittens],
    str_15|agi_12|int_11|cha_8|level(15),wp(120),knows_ironflesh_7|knows_power_strike_7|knows_power_throw_5|knows_riding_2|knows_athletics_7|knows_shield_6,
    0x0000000400000001124000000020000000000000001c00800000000000000000],
   #东方游侠穆小琳
-  ["npc19","Rogue Muxiaolin","Rogue Muxiaolin", tf_female|tf_hero|tf_unmoveable_in_party_window, scn_town_4_tavern|entry(3), reserved, fac_commoners,
+  ["npc19","Rogue Muxiaolin","Rogue Muxiaolin", tf_female|tf_hero, scn_town_4_tavern|entry(3), reserved, fac_commoners,
    [itm_strange_sword, itm_green_dress, itm_blue_hose],
    str_15|agi_12|int_11|cha_8|level(15),wp(120),knows_ironflesh_7|knows_power_strike_7|knows_power_throw_5|knows_riding_2|knows_athletics_7|knows_shield_6,
    0x00000001bf000006377861e2e321bac000000000001db6c10000000000000000],
-
 #NPC system changes end
 
 

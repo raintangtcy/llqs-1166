@@ -978,6 +978,9 @@ scripts = [
          (str_store_string, s0, "str_drop_ladder"),
        (try_end),
      (try_end),
+     
+     ##llqs quest
+     (quest_set_slot, "qst_east_goddess", slot_quest_eastgoddess, 0),
    ]),
 
   #script_game_quick_start

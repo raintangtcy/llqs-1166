@@ -3136,6 +3136,13 @@ game_menus = [
         #initial
    ],
    [
+        #增加测试武器
+        ("mod_add_test_item",[],"Add test item.",
+            [
+                (troop_add_item, "trp_player", "itm_golden_han_sword",0),
+                (troop_add_item, "trp_player", "itm_LQQ",0),
+            ]
+        ),
         #增加玩家声望
         ("mod_add_reputation",[],"Add 20 reputation to player.",
             [

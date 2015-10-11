@@ -48095,4 +48095,53 @@ scripts = [
      (party_set_slot, ":center_no", slot_center_llqs_follower_troop_amount, ":amount"),
    ]),
            
+#作者：llqs
+#脚本: script_recover_life_from_item
+#输入: arg1:item_id, arg2:hit_point_delta
+#输出: none
+#描述: agent_id若装备物品item_id， 则回血 hit_point_delta
+(
+    "recover_life_from_item",
+    [
+        (store_script_param, ":item_id", 1),
+        (store_script_param, ":hit_point_delta", 2),
+        
+        (try_for_agents, ":agent_id"),
+            (agent_get_troop_id, ":trp_id", ":agent_id"),
+            (str_store_agent_name, s2, ":agent_id"),
+            (troop_is_hero, ":trp_id"),
+            (agent_has_item_equipped, ":agent_id", ":item_id"),
+            (str_store_item_name, s1, ":item_id"),
+            (store_agent_hit_points, ":agent_health", ":agent_id", 1),
+             
+            (store_skill_level, ":skill", skl_ironflesh, ":trp_id"),
+            (store_attribute_level, ":attrib", ":trp_id", ca_strength),
+            (val_mul, ":skill", 2),
+            (val_add, ":skill", ":attrib"),
+            (val_add, ":skill", 35),
+            (assign, reg1, ":skill"),#生命上限存到reg1
+            (assign, reg3, ":agent_health"),
+#            (display_message,r"@生 命 上 限 {reg1} , 目 前 生 命 {reg3} ."),
+             
+            (lt, ":agent_health", reg1),
+            (assign, reg0, ":hit_point_delta"),
+            (val_add, ":agent_health", reg0),
+            (agent_set_hit_points, ":agent_id", ":agent_health", 1),
+            (display_message, r"@{s1} 助 {s2} 恢 复 {reg0} 生 命 值 . "),
+        (try_end),
+    ]
+),
+           
+# #作者：llqs
+# #脚本: 
+# #输入: 
+# #输出:
+# #描述:
+# (   
+#     "",
+#     [
+#       
+#     ]
+# ),
+            
 ]

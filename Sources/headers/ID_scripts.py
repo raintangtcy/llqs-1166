@@ -578,5 +578,6 @@ script_init_item_modifier_value_multiplier = 576
 script_cf_check_llqs_follower_condition_for_village = 577
 script_village_recruit_llqs_man_recruit = 578
 script_update_llqs_follower_troops_in_village = 579
+script_recover_life_from_item = 580
 
 

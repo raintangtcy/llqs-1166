@@ -3140,7 +3140,7 @@ game_menus = [
         ("mod_add_test_item",[],"Add test item.",
             [
                 (troop_add_item, "trp_player", "itm_golden_han_sword",0),
-                (troop_add_item, "trp_player", "itm_LQQ",0),
+                (troop_add_item, "trp_player", "itm_lqq",0),
             ]
         ),
         #增加玩家声望

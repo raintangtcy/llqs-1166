@@ -1478,7 +1478,7 @@ items = [
 ["cartridges222","Cartridges222", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0,
  41,weight(2.25)|abundance(255)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(220),imodbits_none],
 
-["LQQ", "Silver Dragon Pike", [("LQQ",0)], itp_type_polearm|itp_offset_lance|itp_primary|itp_two_handed, itc_cn_spear,
+["lqq", "Silver Dragon Pike", [("LQQ",0)], itp_type_polearm|itp_offset_lance|itp_primary|itp_two_handed, itc_cn_spear,
  205 , weight(3.5)|difficulty(9)|spd_rtng(90) | weapon_length(170)|swing_damage(25 , blunt) | thrust_damage(31,  pierce),imodbits_none ],
 
 #special item in llqs mod end

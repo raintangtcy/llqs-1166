@@ -21,7 +21,13 @@ from module_constants import *
 
 
 simple_triggers = [
-                   
+(#测试用，在大地图上按左alt，显示领主声望排行榜
+    0,
+    [
+        (key_clicked, key_left_alt),
+        (start_presentation, "prsnt_renown_ranking"),
+    ]
+),
 (
 #通过全局变量控制， 只出触发一次。检查玩家声望是否达到300，若达到，则提示可以到村庄招募追随者
     1,

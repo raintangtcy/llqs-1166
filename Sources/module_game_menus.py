@@ -3139,8 +3139,9 @@ game_menus = [
         #增加测试武器
         ("mod_add_test_item",[],"Add test item.",
             [
-                (troop_add_item, "trp_player", "itm_golden_han_sword",0),
-                (troop_add_item, "trp_player", "itm_lqq",0),
+#                 (troop_add_item, "trp_player", "itm_golden_han_sword",0),
+#                 (troop_add_item, "trp_player", "itm_lqq",0),
+                (start_presentation, "prsnt_renown_ranking"),
             ]
         ),
         #增加玩家声望

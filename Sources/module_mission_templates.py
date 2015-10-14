@@ -111,9 +111,17 @@ recover_life_from_item =(
     ]
 )
 
+# show_life_bar =(
+#   0, 0, 0, [],
+#     [
+#         (start_presentation, "prsnt_life_status_bar"),
+#     ]
+# )
+
 common_battle_triger = [
     extra_damage_by_power_skill,
     recover_life_from_item,
+#     show_life_bar,
 ]
 
 multiplayer_server_check_belfry_movement = (
@@ -2327,10 +2335,10 @@ mission_templates = [
 #                     (agent_get_troop_id, ":trp_id", ":agent_id"),
 #                     (str_store_agent_name, s2, ":agent_id"),
 #                     (troop_is_hero, ":trp_id"),
-#                     (agent_has_item_equipped, ":agent_id", "itm_lqq"),
-#                     (str_store_item_name, s1, "itm_LQQ"),
+#                     (agent_has_item_equipped, ":agent_id", "itm_plate_armor"),#全身板甲
+#                     (str_store_item_name, s1, "itm_plate_armor"),
 #                     (store_agent_hit_points, ":agent_health", ":agent_id", 1),
-#                      
+#                       
 #                      (store_skill_level, ":skill", skl_ironflesh, ":trp_id"),
 #                     (store_attribute_level, ":attrib", ":trp_id", ca_strength),
 #                     (val_mul, ":skill", 2),
@@ -2339,7 +2347,7 @@ mission_templates = [
 #                     (assign, reg1, ":skill"),#生命上限存到reg1
 #                     (assign, reg3, ":agent_health"),
 # #                     (display_message,r"@生 命 上 限 {reg1} , 目 前 生 命 {reg3} ."),
-#                      
+#                       
 #                     (lt, ":agent_health", reg1),
 #                     (assign, reg0, 5),
 #                     (val_add, ":agent_health", reg0),
